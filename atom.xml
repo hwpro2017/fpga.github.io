@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>FPGA Player</title>
+  <subtitle>Beginner&#39;s Mind</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2017-02-04T03:30:15.688Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>FPGA玩家</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>博客测试-博主专区</title>
+    <link href="http://yoursite.com/2017/02/02/Testing/"/>
+    <id>http://yoursite.com/2017/02/02/Testing/</id>
+    <published>2017-02-02T15:30:11.000Z</published>
+    <updated>2017-02-04T03:30:15.688Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;测试博客-这里是一个供博主自己瞎折腾的地方……&lt;br&gt;-图床测试&lt;br&gt;-代码测试&lt;br&gt;-其他测试&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="博客测试" scheme="http://yoursite.com/categories/%E5%8D%9A%E5%AE%A2%E6%B5%8B%E8%AF%95/"/>
+    
+    
+      <category term="Testing" scheme="http://yoursite.com/tags/Testing/"/>
+    
+      <category term="Another Tag" scheme="http://yoursite.com/tags/Another-Tag/"/>
+    
+  </entry>
+  
+</feed>

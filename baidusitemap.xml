@@ -4,6 +4,110 @@
 
     
   <url>
+    <loc>http://fpgaplayer.com/2017/02/06/vivadobase-0/</loc>
+    <lastmod>2017-02-06T15:36:20.138Z</lastmod>
+    <data>
+        <display>
+        <title>Vivado工具入门-下载与安装</title>
+        <pubTime>2017-02-06T01:47:26.000Z</pubTime>
+        
+        <tag>Vivado</tag>
+         
+         
+           
+             
+              <breadCrumb title="工具" url="http://fpgaplayer.com/categories/%E5%B7%A5%E5%85%B7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://fpgaplayer.com/2017/02/06/vivadobase-1/</loc>
+    <lastmod>2017-02-06T15:36:18.578Z</lastmod>
+    <data>
+        <display>
+        <title>在Windows下使用ISE</title>
+        <pubTime>2017-02-06T01:47:26.000Z</pubTime>
+        
+        <tag>Vivado</tag>
+         
+         
+           
+             
+              <breadCrumb title="工具" url="http://fpgaplayer.com/categories/%E5%B7%A5%E5%85%B7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://fpgaplayer.com/2017/02/05/todolist/</loc>
+    <lastmod>2017-02-06T15:35:50.038Z</lastmod>
+    <data>
+        <display>
+        <title>开博挖坑</title>
+        <pubTime>2017-02-04T16:27:08.000Z</pubTime>
+        
+        <tag>Another Tag</tag>
+         
+         
+           
+             
+              <breadCrumb title="其他" url="http://fpgaplayer.com/categories/%E5%85%B6%E4%BB%96/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://fpgaplayer.com/2017/02/02/Testing/</loc>
+    <lastmod>2017-02-06T15:35:41.609Z</lastmod>
+    <data>
+        <display>
+        <title>博客测试-博主专区</title>
+        <pubTime>2017-02-02T15:30:11.000Z</pubTime>
+        
+        <tag>Testing</tag>
+         
+        <tag>Another Tag</tag>
+         
+         
+           
+             
+              <breadCrumb title="博客测试" url="http://fpgaplayer.com/categories/%E5%8D%9A%E5%AE%A2%E6%B5%8B%E8%AF%95/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://fpgaplayer.com/2017/02/06/linux-mac-0/</loc>
+    <lastmod>2017-02-06T15:35:26.755Z</lastmod>
+    <data>
+        <display>
+        <title>Linux系统Vivado license问题 HostID="000000000000"</title>
+        <pubTime>2017-02-06T12:30:48.000Z</pubTime>
+        
+        <tag>Vivado</tag>
+         
+        <tag>Linux</tag>
+         
+         
+           
+             
+              <breadCrumb title="工具" url="http://fpgaplayer.com/categories/%E5%B7%A5%E5%85%B7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://fpgaplayer.com/2017/02/06/ultrafast-0/</loc>
     <lastmod>2017-02-06T15:32:25.185Z</lastmod>
     <data>
@@ -25,111 +129,7 @@
     </url>
 
     
-  <url>
-    <loc>http://fpgaplayer.com/2017/02/06/linux-mac-0/</loc>
-    <lastmod>2017-02-06T14:22:12.472Z</lastmod>
-    <data>
-        <display>
-        <title>Linux系统Vivado license问题 HostID="000000000000"</title>
-        <pubTime>2017-02-06T12:30:48.000Z</pubTime>
-        
-        <tag>Vivado</tag>
-         
-        <tag>Linux</tag>
-         
-         
-           
-             
-              <breadCrumb title="工具" url="http://fpgaplayer.com/categories/%E5%B7%A5%E5%85%B7/"/>
-          
-        </display>
-    </data>
-    </url>
-
     
-  <url>
-    <loc>http://fpgaplayer.com/2017/02/06/vivadobase-1/</loc>
-    <lastmod>2017-02-06T10:25:58.727Z</lastmod>
-    <data>
-        <display>
-        <title>在Windows下使用ISE</title>
-        <pubTime>2017-02-06T01:47:26.000Z</pubTime>
-        
-        <tag>Vivado</tag>
-         
-         
-           
-             
-              <breadCrumb title="工具" url="http://fpgaplayer.com/categories/%E5%B7%A5%E5%85%B7/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://fpgaplayer.com/2017/02/06/vivadobase-0/</loc>
-    <lastmod>2017-02-06T09:28:07.100Z</lastmod>
-    <data>
-        <display>
-        <title>Vivado工具入门-下载与安装</title>
-        <pubTime>2017-02-06T01:47:26.000Z</pubTime>
-        
-        <tag>Vivado</tag>
-         
-         
-           
-             
-              <breadCrumb title="工具" url="http://fpgaplayer.com/categories/%E5%B7%A5%E5%85%B7/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-    
-    
-  <url>
-    <loc>http://fpgaplayer.com/2017/02/05/todolist/</loc>
-    <lastmod>2017-02-04T16:38:46.423Z</lastmod>
-    <data>
-        <display>
-        <title>开博挖坑</title>
-        <pubTime>2017-02-04T16:27:08.000Z</pubTime>
-        
-        <tag>Another Tag</tag>
-         
-         
-           
-             
-              <breadCrumb title="其他" url="http://fpgaplayer.com/categories/%E5%85%B6%E4%BB%96/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://fpgaplayer.com/2017/02/02/Testing/</loc>
-    <lastmod>2017-02-04T03:30:15.688Z</lastmod>
-    <data>
-        <display>
-        <title>博客测试-博主专区</title>
-        <pubTime>2017-02-02T15:30:11.000Z</pubTime>
-        
-        <tag>Testing</tag>
-         
-        <tag>Another Tag</tag>
-         
-         
-           
-             
-              <breadCrumb title="博客测试" url="http://fpgaplayer.com/categories/%E5%8D%9A%E5%AE%A2%E6%B5%8B%E8%AF%95/"/>
-          
-        </display>
-    </data>
-    </url>
-
     
     
 </urlset>

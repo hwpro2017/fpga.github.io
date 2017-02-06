@@ -3,6 +3,26 @@
 
 
     
+  <url>
+    <loc>http://fpgaplayer.com/2017/02/06/vivadobase0/</loc>
+    <lastmod>2017-02-06T08:23:14.836Z</lastmod>
+    <data>
+        <display>
+        <title>vivado工具入门-下载与安装</title>
+        <pubTime>2017-02-06T01:47:26.000Z</pubTime>
+        
+        <tag>Vivado</tag>
+         
+         
+           
+             
+              <breadCrumb title="工具" url="http://fpgaplayer.com/categories/%E5%B7%A5%E5%85%B7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
     
     
   <url>
@@ -33,9 +53,9 @@
         <title>博客测试-博主专区</title>
         <pubTime>2017-02-02T15:30:11.000Z</pubTime>
         
-        <tag>Testing</tag>
-         
         <tag>Another Tag</tag>
+         
+        <tag>Testing</tag>
          
          
            

@@ -98,7 +98,7 @@
 <meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170206/155538508.png-960img">
 <meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170206/161531657.png-960img">
 <meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170206/162136684.png-960img">
-<meta property="og:updated_time" content="2017-02-06T08:30:50.542Z">
+<meta property="og:updated_time" content="2017-02-06T09:28:07.100Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vivado工具入门-下载与安装">
 <meta name="twitter:description" content="所谓工欲善其事,必先利其器，想把FPGA玩好必须先用好工具；说到工具的选择，再没有项目约束的前提下，还是要选用主流新版本的工具。赛灵思公司的Vivado集成设计套件自2012年发布到现在已经过了几个年头，目前已经成为业界最高生产力的标志，用好这个工具可以让我们事半功倍。首先，我们来了解工具的下载与安装……">
@@ -482,7 +482,8 @@
 <p><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170206/155538508.png-960img" alt=""></p>
 <p>这些都勾选好之后，确认安装路径，就可以坐等工具安装啦。</p>
 <p><strong>Linux用户看这里：</strong><br>安装驱动需要root权限，在默认安装过程中是没有安装cable drives的，也不需要root权限！（Vivado 2015.4之后的版本都是这样的）<br>但是之后若需要使用Xilinx JTAG Cable，那么还需要手动安装驱动滴！<br>在root权限下，执行驱动安装脚本，脚本路径如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Vivado Install Dir&gt;/data/xicom/cable_drivers/lin64/install_script/install_drivers/install_drivers</div></pre></td></tr></table></figure></p>
-<h1 id="工具卸载"><a href="#工具卸载" class="headerlink" title="工具卸载"></a>工具卸载</h1><p>如果玩家们不小心装出问题了，只好卸载重装啦。<br>卸载的方式还是很简单的：<br>Windows下直接运行：Applications &gt; Xilinx Design Tools &gt; Vivado 2016.4 &gt; Uninstall<br>Linux下运行：<install_path>.xinstall\Vivado_2016.4\ xsetup.exe –Uninstall</install_path></p>
+<h1 id="工具卸载"><a href="#工具卸载" class="headerlink" title="工具卸载"></a>工具卸载</h1><p>如果玩家们不小心装出问题了，只好卸载重装啦。<br>卸载的方式还是很简单的：<br>Windows下直接运行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Applications &gt; Xilinx Design Tools &gt; Vivado 2016.4 &gt; Uninstall</div></pre></td></tr></table></figure></p>
+<p>Linux下运行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;install_path&gt;\.xinstall\Vivado_2016.4\ xsetup.exe –Uninstall</div></pre></td></tr></table></figure></p>
 <h1 id="工具激活"><a href="#工具激活" class="headerlink" title="工具激活"></a>工具激活</h1><p>Vivado工具有自带的Vivado License Manager来管理license；<br>Windows OS下： Start &gt; All Programs &gt; Xilinx Design Tools &gt; Vivado 2016.4 &gt; Manage Xilinx Licenses.<br>Linux OS下：直接运行vlm</p>
 <p>VLM的界面如下：<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170206/161531657.png-960img" alt=""></p>
 <p>在Obtain License可选择官方途径获取license；<br>在取得license后，可在Load License中加载License；<br>玩家们申请License可以在赛灵思许可网站来操作：<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170206/162136684.png-960img" alt=""><br>工具安装就基本到这里了；关于官方License申请流程，咱们随后另外开个贴再详细唠。</p>
@@ -539,8 +540,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/05/todolist/" rel="next" title="开博挖坑">
-                <i class="fa fa-chevron-left"></i> 开博挖坑
+              <a href="/2017/02/06/vivadobase1/" rel="next" title="在Windows下使用ISE">
+                <i class="fa fa-chevron-left"></i> 在Windows下使用ISE
               </a>
             
           </div>
@@ -646,7 +647,7 @@ var jiathis_config={
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

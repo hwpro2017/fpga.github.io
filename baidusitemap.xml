@@ -4,8 +4,28 @@
 
     
   <url>
+    <loc>http://fpgaplayer.com/2017/02/06/vivadobase1/</loc>
+    <lastmod>2017-02-06T10:23:05.912Z</lastmod>
+    <data>
+        <display>
+        <title>在Windows下使用ISE</title>
+        <pubTime>2017-02-06T01:47:26.000Z</pubTime>
+        
+        <tag>Vivado</tag>
+         
+         
+           
+             
+              <breadCrumb title="工具" url="http://fpgaplayer.com/categories/%E5%B7%A5%E5%85%B7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://fpgaplayer.com/2017/02/06/vivadobase0/</loc>
-    <lastmod>2017-02-06T08:30:50.542Z</lastmod>
+    <lastmod>2017-02-06T09:28:07.100Z</lastmod>
     <data>
         <display>
         <title>Vivado工具入门-下载与安装</title>

@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="FPGA Player">
 <meta property="og:description" content="Linux下，Vivado无法生成bit文件；Linux下，Vivado提示license，而同样license在Win系统下缺没问题；Linux下，Vivado License Manager (VLM) 提示 HostID为 “000000000000”；
 有没有遇到过这种情况的玩家呢？下面就解决这个问题。">
-<meta property="og:updated_time" content="2017-02-06T13:07:15.533Z">
+<meta property="og:updated_time" content="2017-02-06T13:48:25.497Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux系统Vivado license问题 HostID="000000000000"">
 <meta name="twitter:description" content="Linux下，Vivado无法生成bit文件；Linux下，Vivado提示license，而同样license在Win系统下缺没问题；Linux下，Vivado License Manager (VLM) 提示 HostID为 “000000000000”；
@@ -432,7 +432,7 @@
 <h1 id="好好的eth，为啥要改名呢？"><a href="#好好的eth，为啥要改名呢？" class="headerlink" title="好好的eth，为啥要改名呢？"></a>好好的eth，为啥要改名呢？</h1><p>运行 Linux 的系统一贯将以太网设备命名为 ethX。桌面可能有一个命名为 eth0的以太网端口。如果仅有一个网络端口，这样毫无问题，但如果四个以太网端口该怎么办？<br>它们被命名为 eth0、eth1、eth2、eth3，分别对应机箱背面的标签 1、2、3、4。<br>某些时候确实如此。除了从 0 开始，而不是从 1 开始导致的明显命名混乱外，还可能出现其他混乱情况，如每个端口在每次启用时可能无法获得相同的名称，此外它们的命名顺序可能是任意的。如果将网卡添加到 PCI 插槽，情况还会更糟，主板上的端口和新添加卡上的端口命名可能相互混杂。</p>
 <h2 id="于是乎，DELL想了一招"><a href="#于是乎，DELL想了一招" class="headerlink" title="于是乎，DELL想了一招"></a>于是乎，DELL想了一招</h2><p>运行biosdevname，这是 Dell 开发的工具，旨在为网络设备的命名理清思路（并且保持一致性！）。Biosdevname 是一款 udev 帮助程序，可根据系统 BIOS 提供的信息对网络接口进行重命名。</p>
 <h2 id="新的命名规则如下"><a href="#新的命名规则如下" class="headerlink" title="新的命名规则如下"></a>新的命名规则如下</h2><p>em[1-N] 表示主板（嵌入式）NIC（# 对应机箱标签）<br>pci<slot>#<port> 表示 PCI 插槽中的卡，端口 1 至 N<br>NPAR &amp; SR-IOV 设备增加后缀 _<vf>，从 0 至 N，取决于各端口可用的分区或虚拟功能的数量。其他 Linux 命名规则，如 .<vlan> 和 :<alias> 后缀，保持不变且仍然适用。由此，Linux 网络接口名称与外部可见的网络端口（RJ-45 机架）之间建立了明确的对照。</alias></vlan></vf></port></slot></p>
-<h2 id="相关详情可参考"><a href="#相关详情可参考" class="headerlink" title="相关详情可参考"></a>相关详情可参考</h2><p><a href="http://linux.dell.com/files/whitepapers/consistent_network_device_naming_in_linux.pdf" title="Linux一致性网络设备命名规范白皮书" target="_blank" rel="external">http://linux.dell.com/files/whitepapers/consistent_network_device_naming_in_linux.pdf</a></p>
+<h2 id="相关详情可参考"><a href="#相关详情可参考" class="headerlink" title="相关详情可参考"></a>相关详情可参考</h2><p><a href="http://linux.dell.com/files/whitepapers/consistent_network_device_naming_in_linux.pdf" title="Linux一致性网络设备命名规范白皮书" target="_blank" rel="external">“Linux一致性网络设备命名规范白皮书”</a></p>
 <h1 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h1><p>这些和咱们的问题有啥关系呢？<br>问题的关键来了：</p>
 <h2 id="赛灵思的License管理工具（VLM）是基于Flexlm工具是无法识别这些新名字的！"><a href="#赛灵思的License管理工具（VLM）是基于Flexlm工具是无法识别这些新名字的！" class="headerlink" title="赛灵思的License管理工具（VLM）是基于Flexlm工具是无法识别这些新名字的！"></a><strong>赛灵思的License管理工具（VLM）是基于Flexlm工具是无法识别这些新名字的！</strong></h2><h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>既然找到问题原因了，那就可以找办法解决了。<br>既然不识别新的一致性网络设备名称，那咱就给他改回去呗。</p>
 <ul>
@@ -504,7 +504,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/06/vivadobase1/" rel="next" title="在Windows下使用ISE">
+              <a href="/2017/02/06/vivadobase-1/" rel="next" title="在Windows下使用ISE">
                 <i class="fa fa-chevron-left"></i> 在Windows下使用ISE
               </a>
             
@@ -513,6 +513,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/02/06/ultrafast-0/" rel="prev" title="UltraFast设计方法学之初窥门径">
+                UltraFast设计方法学之初窥门径 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -611,7 +615,7 @@ var jiathis_config={
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -620,7 +624,7 @@ var jiathis_config={
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -629,7 +633,7 @@ var jiathis_config={
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

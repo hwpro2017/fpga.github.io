@@ -4,8 +4,30 @@
 
     
   <url>
+    <loc>http://fpgaplayer.com/2017/02/06/ultrafast-0/</loc>
+    <lastmod>2017-02-06T14:02:23.341Z</lastmod>
+    <data>
+        <display>
+        <title>UltraFast设计方法学之初窥门径</title>
+        <pubTime>2017-02-06T13:14:11.000Z</pubTime>
+        
+        <tag>Vivado</tag>
+         
+        <tag>UltraFast</tag>
+         
+         
+           
+             
+              <breadCrumb title="教程" url="http://fpgaplayer.com/categories/%E6%95%99%E7%A8%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://fpgaplayer.com/2017/02/06/linux-mac-0/</loc>
-    <lastmod>2017-02-06T13:07:15.533Z</lastmod>
+    <lastmod>2017-02-06T13:48:25.497Z</lastmod>
     <data>
         <display>
         <title>Linux系统Vivado license问题 HostID="000000000000"</title>
@@ -26,7 +48,7 @@
 
     
   <url>
-    <loc>http://fpgaplayer.com/2017/02/06/vivadobase1/</loc>
+    <loc>http://fpgaplayer.com/2017/02/06/vivadobase-1/</loc>
     <lastmod>2017-02-06T10:25:58.727Z</lastmod>
     <data>
         <display>
@@ -46,7 +68,7 @@
 
     
   <url>
-    <loc>http://fpgaplayer.com/2017/02/06/vivadobase0/</loc>
+    <loc>http://fpgaplayer.com/2017/02/06/vivadobase-0/</loc>
     <lastmod>2017-02-06T09:28:07.100Z</lastmod>
     <data>
         <display>

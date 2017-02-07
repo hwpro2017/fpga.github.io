@@ -4,6 +4,46 @@
 
     
   <url>
+    <loc>http://fpgaplayer.com/2017/02/05/todolist/</loc>
+    <lastmod>2017-02-07T14:14:17.751Z</lastmod>
+    <data>
+        <display>
+        <title>开博挖坑</title>
+        <pubTime>2017-02-04T16:27:08.000Z</pubTime>
+        
+        <tag>Testing</tag>
+         
+         
+           
+             
+              <breadCrumb title="其他" url="http://fpgaplayer.com/categories/%E5%85%B6%E4%BB%96/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://fpgaplayer.com/2017/02/02/Testing/</loc>
+    <lastmod>2017-02-07T14:13:25.996Z</lastmod>
+    <data>
+        <display>
+        <title>博客测试-博主专区</title>
+        <pubTime>2017-02-02T15:30:11.000Z</pubTime>
+        
+        <tag>Testing</tag>
+         
+         
+           
+             
+              <breadCrumb title="博客测试" url="http://fpgaplayer.com/categories/%E5%8D%9A%E5%AE%A2%E6%B5%8B%E8%AF%95/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://fpgaplayer.com/2017/02/07/esater-egg/</loc>
     <lastmod>2017-02-07T12:37:41.579Z</lastmod>
     <data>
@@ -57,48 +97,6 @@
            
              
               <breadCrumb title="工具" url="http://fpgaplayer.com/categories/%E5%B7%A5%E5%85%B7/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://fpgaplayer.com/2017/02/05/todolist/</loc>
-    <lastmod>2017-02-06T15:35:50.038Z</lastmod>
-    <data>
-        <display>
-        <title>开博挖坑</title>
-        <pubTime>2017-02-04T16:27:08.000Z</pubTime>
-        
-        <tag>Another Tag</tag>
-         
-         
-           
-             
-              <breadCrumb title="其他" url="http://fpgaplayer.com/categories/%E5%85%B6%E4%BB%96/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://fpgaplayer.com/2017/02/02/Testing/</loc>
-    <lastmod>2017-02-06T15:35:41.609Z</lastmod>
-    <data>
-        <display>
-        <title>博客测试-博主专区</title>
-        <pubTime>2017-02-02T15:30:11.000Z</pubTime>
-        
-        <tag>Testing</tag>
-         
-        <tag>Another Tag</tag>
-         
-         
-           
-             
-              <breadCrumb title="博客测试" url="http://fpgaplayer.com/categories/%E5%8D%9A%E5%AE%A2%E6%B5%8B%E8%AF%95/"/>
           
         </display>
     </data>

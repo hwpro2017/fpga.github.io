@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Vivado," />
+  <meta name="keywords" content="Vivado,Vivado IP,Vivado IPI," />
 
 
 
@@ -84,19 +84,33 @@
 
 
 
-<meta name="description" content="这里给出的是博主专为 FPGAPlayer.com 的初级玩家们精心压制的超小容量Vivado安装包。">
+<meta name="description" content="Vivado IPI 怎么用？Vivado IPI 设计的整体流程是什么？Vivado IPI 中如何做总线信号处理？Vivado IPI 下还有什么小把戏可以让我玩的更爽？……">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vivado安装包-最小体积版本">
-<meta property="og:url" content="http://fpgaplayer.com/2017/02/07/esater-egg/index.html">
+<meta property="og:title" content="Vivado IP集成器（IPI）基本设计流程">
+<meta property="og:url" content="http://fpgaplayer.com/2017/02/08/vivadobase-ipi-1/index.html">
 <meta property="og:site_name" content="FPGA Player">
-<meta property="og:description" content="这里给出的是博主专为 FPGAPlayer.com 的初级玩家们精心压制的超小容量Vivado安装包。">
-<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170207/183440653.png-960img">
-<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170207/194327553.jpg-960img">
-<meta property="og:updated_time" content="2017-02-08T12:25:56.241Z">
+<meta property="og:description" content="Vivado IPI 怎么用？Vivado IPI 设计的整体流程是什么？Vivado IPI 中如何做总线信号处理？Vivado IPI 下还有什么小把戏可以让我玩的更爽？……">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170208/213014730.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170208/213141281.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170208/213237766.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170208/214056402.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170208/214338495.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170208/215307559.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170208/215521474.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170208/215933544.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170208/220112054.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170208/220243298.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170208/220501562.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170208/220952701.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170208/221841522.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170208/222043911.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170208/222231668.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170208/222201803.png">
+<meta property="og:updated_time" content="2017-02-08T14:31:31.224Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vivado安装包-最小体积版本">
-<meta name="twitter:description" content="这里给出的是博主专为 FPGAPlayer.com 的初级玩家们精心压制的超小容量Vivado安装包。">
-<meta name="twitter:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170207/183440653.png-960img">
+<meta name="twitter:title" content="Vivado IP集成器（IPI）基本设计流程">
+<meta name="twitter:description" content="Vivado IPI 怎么用？Vivado IPI 设计的整体流程是什么？Vivado IPI 中如何做总线信号处理？Vivado IPI 下还有什么小把戏可以让我玩的更爽？……">
+<meta name="twitter:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170208/213014730.png-960img">
 
 
 
@@ -124,13 +138,13 @@
 
 
 
-  <link rel="canonical" href="http://fpgaplayer.com/2017/02/07/esater-egg/"/>
+  <link rel="canonical" href="http://fpgaplayer.com/2017/02/08/vivadobase-ipi-1/"/>
 
 
 
 
 
-  <title> Vivado安装包-最小体积版本 | FPGA Player </title>
+  <title> Vivado IP集成器（IPI）基本设计流程 | FPGA Player </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -293,7 +307,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://fpgaplayer.com/2017/02/07/esater-egg/">
+  <link itemprop="mainEntityOfPage" href="http://fpgaplayer.com/2017/02/08/vivadobase-ipi-1/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="FPGA玩家">
@@ -317,7 +331,7 @@
             
             
               
-                Vivado安装包-最小体积版本
+                Vivado IP集成器（IPI）基本设计流程
               
             
           </h1>
@@ -332,8 +346,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-07T19:47:21+08:00">
-                2017-02-07
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-08T20:53:46+08:00">
+                2017-02-08
               </time>
             
 
@@ -355,8 +369,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工具/" itemprop="url" rel="index">
-                    <span itemprop="name">工具</span>
+                  <a href="/categories/教程/" itemprop="url" rel="index">
+                    <span itemprop="name">教程</span>
                   </a>
                 </span>
 
@@ -373,8 +387,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/02/07/esater-egg/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/07/esater-egg/" itemprop="commentCount"></span>
+                <a href="/2017/02/08/vivadobase-ipi-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/08/vivadobase-ipi-1/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -400,78 +414,23 @@
       
 
       
-        <p>这里给出的是博主专为 FPGAPlayer.com 的初级玩家们精心压制的超小容量Vivado安装包。</p>
+        <p>Vivado IPI 怎么用？<br>Vivado IPI 设计的整体流程是什么？<br>Vivado IPI 中如何做总线信号处理？<br>Vivado IPI 下还有什么小把戏可以让我玩的更爽？<br>……</p>
 <a id="more"></a>
-<h1 id="完整版Vivado安装包"><a href="#完整版Vivado安装包" class="headerlink" title="完整版Vivado安装包"></a>完整版Vivado安装包</h1><h2 id="我们来看一下，如果选择全部完整安装的话。需要吃掉多少硬盘空间吧"><a href="#我们来看一下，如果选择全部完整安装的话。需要吃掉多少硬盘空间吧" class="headerlink" title="我们来看一下，如果选择全部完整安装的话。需要吃掉多少硬盘空间吧"></a>我们来看一下，如果选择全部完整安装的话。需要吃掉多少硬盘空间吧</h2><p><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170207/183440653.png-960img" alt=""></p>
-<p>是的噢，65G！！！<br>即便是安装完后把安装包删掉，那也还有接近50G！！</p>
-<p>这里附上完整版下载与安装流程：<a href="http://blog.fpgaplayer.com/2017/02/06/vivadobase-0/" target="_blank" rel="external">Vivado工具入门-下载与安装</a></p>
-<h2 id="因此，为便于初学者在使用之初不必下载数十G的安装文件，以及不必安装完全不需要的组件。FPGAPlayer-com为各位玩家们给出了最小体积版本的Vivado安装方案。"><a href="#因此，为便于初学者在使用之初不必下载数十G的安装文件，以及不必安装完全不需要的组件。FPGAPlayer-com为各位玩家们给出了最小体积版本的Vivado安装方案。" class="headerlink" title="因此，为便于初学者在使用之初不必下载数十G的安装文件，以及不必安装完全不需要的组件。FPGAPlayer.com为各位玩家们给出了最小体积版本的Vivado安装方案。"></a><strong>因此，为便于初学者在使用之初不必下载数十G的安装文件，以及不必安装完全不需要的组件。FPGAPlayer.com为各位玩家们给出了最小体积版本的Vivado安装方案。</strong></h2><h1 id="那么玩家们应该挑选哪个版本下载呢？"><a href="#那么玩家们应该挑选哪个版本下载呢？" class="headerlink" title="那么玩家们应该挑选哪个版本下载呢？"></a>那么玩家们应该挑选哪个版本下载呢？</h1><hr>
-<h2 id="如果你需要使用到以下器件中的某一个"><a href="#如果你需要使用到以下器件中的某一个" class="headerlink" title=" 如果你需要使用到以下器件中的某一个 "></a><strong> 如果你需要使用到以下器件中的某一个 </strong></h2><ul>
-<li>Artix®-7 (XC7A15T、  XC7A35T、 XC7A50T、 XC7A75T、 XC7A100T、 XC7A200T)</li>
-<li>Kintex®-7 (XC7K70T、 XC7K160T)</li>
-<li>Zynq®-7000 All Programmable SoC(XC7Z007S – XC7Z7030)</li>
-</ul>
-<p><strong>请选择Vivado_2016.4_WebPack_ZYNQ_A7_K7_HLS_noSDK</strong></p>
-<ul>
-<li>安装包容量： 2.45G</li>
-<li>安装后容量： 7.5G以内</li>
-</ul>
-<hr>
-<h2 id="如果你需要使用到以下器件中的某一个-1"><a href="#如果你需要使用到以下器件中的某一个-1" class="headerlink" title=" 如果你需要使用到以下器件中的某一个 "></a><strong> 如果你需要使用到以下器件中的某一个 </strong></h2><ul>
-<li>Zynq®-7000 All Programmable SoC(XC7Z007S – XC7Z7030)</li>
-</ul>
-<p><strong>请选择Vivado_2016.4_WebPack_SDK_only</strong></p>
-<ul>
-<li>安装包容量： 2.68G</li>
-<li>安装后容量： 8.5G以内</li>
-</ul>
-<hr>
-<h2 id="如果你还需要使用SDK"><a href="#如果你还需要使用SDK" class="headerlink" title=" 如果你还需要使用SDK "></a><strong> 如果你还需要使用SDK </strong></h2><ul>
-<li>Artix®-7 (XC7A15T、  XC7A35T、 XC7A50T、 XC7A75T、 XC7A100T、 XC7A200T)</li>
-<li>Kintex®-7 (XC7K70T、 XC7K160T)</li>
-<li>Zynq®-7000 All Programmable SoC(XC7Z007S – XC7Z7030)</li>
-</ul>
-<p><strong>请“！！额外！！”选择Vivado_2016.4_WebPack_SDK_only</strong></p>
-<ul>
-<li>安装包容量： 1.55G</li>
-<li>安装后容量： 9.5G以内</li>
-</ul>
-<p>是的，你没看错，如果要用SDK的话，需要额外再使用近10G的硬盘空间来安装SDK工具；<br>SDK工具安装过程中解压出接近7G的GUN 工具链，所以没办法啦，已经是最小了。</p>
-<hr>
-<h2 id="如果你需要使用到以下器件中的某一个："><a href="#如果你需要使用到以下器件中的某一个：" class="headerlink" title="如果你需要使用到以下器件中的某一个： "></a><strong>如果你需要使用到以下器件中的某一个： </strong></h2><ul>
-<li>Zynq UltraScale+™ MPSoC (XCZU2CG/EG, XCZU3CG/EG) </li>
-</ul>
-<p><strong>请等待Vivado 2017.1版</strong></p>
-<hr>
-<h2 id="如果上述器件不涵盖你所需要使用的器件"><a href="#如果上述器件不涵盖你所需要使用的器件" class="headerlink" title="如果上述器件不涵盖你所需要使用的器件"></a><strong>如果上述器件不涵盖你所需要使用的器件</strong></h2><ul>
-<li>那么你一定不算是初级玩家了，请下载System版本吧，如需帮助请留言联系。</li>
-</ul>
-<hr>
-<h1 id="安装流程"><a href="#安装流程" class="headerlink" title="安装流程"></a>安装流程</h1><ol>
-<li>解压安装包</li>
-<li>打开xsetup.exe</li>
-<li>点击next</li>
-<li>勾选三个I Agree</li>
-<li>连续点击next到选择安装路径界面</li>
-<li>选择安装路径</li>
-<li>再次点击next进行安装</li>
-<li>等待安装完成</li>
-</ol>
-<hr>
-<h1 id="最后附上获取方式以及声明"><a href="#最后附上获取方式以及声明" class="headerlink" title="最后附上获取方式以及声明"></a>最后附上获取方式以及声明</h1><h2 id="获取方式"><a href="#获取方式" class="headerlink" title="获取方式"></a>获取方式</h2><ol>
-<li>扫描下方二维码 </li>
-<li>点击关注</li>
-<li>菜单点击“便民服务”-“Vivado安装包”</li>
-<li>获取下载链接</li>
-<li>安装/使用请关注<a href="http://fpgaplayer.com">fpgaplayer.com</a></li>
-</ol>
-<p><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170207/194327553.jpg-960img" alt=""></p>
-<p>上述Vivado安装文件来自XILINX官网，FPGAPlayer.com仅针对安装组件重新配置选择后压缩，以便于初学者在使用之初不必下载数十G的安装文件，以及不必安装完全不需要的组件。以上安装文件版权不属于FPGAPlayer.com，如有相关人士认为FPGAPlayer.com做法不妥，请联系hwpro2017@163.com。</p>
-<h1 id="相关文章"><a href="#相关文章" class="headerlink" title="相关文章"></a>相关文章</h1><ol>
-<li>Vivado license 申请指南  <a href="http://blog.fpgaplayer.com/2017/02/08/vivado-license/" target="_blank" rel="external">点击此处</a></li>
-<li>Vivado工具入门-下载与安装 <a href="http://blog.fpgaplayer.com/2017/02/06/vivadobase-0/" target="_blank" rel="external">点击此处</a></li>
-</ol>
-<hr>
+<h1 id="IPI-设计流程"><a href="#IPI-设计流程" class="headerlink" title="IPI 设计流程"></a>IPI 设计流程</h1><p>首先呢，我们先看最基本的设计流程。</p>
+<h2 id="创建工程"><a href="#创建工程" class="headerlink" title="创建工程"></a>创建工程</h2><p>创建工程，这个不多说了，和HDL方式设计的方法一致；</p>
+<h2 id="创建IPI设计"><a href="#创建IPI设计" class="headerlink" title="创建IPI设计"></a>创建IPI设计</h2><p>进入工程界面后，我们点击Creat Block Design来创建一个IPI设计。<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170208/213014730.png-960img" alt=""><br>在确认窗口中直接OK吧，不用关心它叫什么名字。<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170208/213141281.png-960img" alt=""><br>这时，在主窗口，可以看到，我们开辟了一块空白的战场。<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170208/213237766.png-960img" alt=""><br>就是这里，IPI的设计都在这里玩了。</p>
+<h2 id="添加IP"><a href="#添加IP" class="headerlink" title="添加IP"></a>添加IP</h2><p>添加IP自然要打开IP Catalog，方法有很多，玩家们可以右键或在界面中使用按钮来选择打开IP Catalog。<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170208/214056402.png-960img" alt=""><br>IP Catalog中，可以按照需求，来双击添加IP到我们的IPI设计区域中。<br><strong>小技巧：</strong>在IP catalog窗口打开后按下 ctrl+Q 可以看到对应IP的介绍。<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170208/214338495.png-960img" alt=""></p>
+<h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><h3 id="连线"><a href="#连线" class="headerlink" title="连线"></a>连线</h3><p>连线算是最基本操作了。鼠标点住端口，移动至需要连接的模块端口处松开即可。（在鼠标到达对应目标IP时，会发现IPI工具自动将可连接的端口处标注绿色对勾标志）<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170208/215307559.png-960img" alt=""></p>
+<h3 id="模块重命名"><a href="#模块重命名" class="headerlink" title="模块重命名"></a>模块重命名</h3><p>选中需要重命名的模块，在属性窗口中编辑名称，回车即可。<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170208/215521474.png-960img" alt=""></p>
+<h3 id="端口信号创建以及重命名"><a href="#端口信号创建以及重命名" class="headerlink" title="端口信号创建以及重命名"></a>端口信号创建以及重命名</h3><p>端口信号，即IPI设计模块对外的信号。右键菜单中可以进行创建。<br>在弹出窗口中，指定名称、类型。同时也可在属性窗口中对名称进行修改。<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170208/215933544.png-960img" alt=""><br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170208/220112054.png-960img" alt=""></p>
+<p>另外一种端口信号的创建方式是，在需要引出对外的模块IO处选中，右键，在菜单中选择make external。（这种方式创建的端口名称会和该IO接口的名称保持一致，当然也可以手动去属性进行修改）<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170208/220243298.png-960img" alt=""></p>
+<h3 id="IP设置"><a href="#IP设置" class="headerlink" title="IP设置"></a>IP设置</h3><p>调用的众多IP，玩家们可以通过双击的方式打开对应IP的配置界面，在这里对IP进行图形化配置。<br>注意观察会发现，不同的参数配置，可能会影响IP图形细节，比如总线位宽等等。这种变化会随着参数改变而实时体现出来。<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170208/220501562.png-960img" alt=""></p>
+<h3 id="侧边工具栏介绍"><a href="#侧边工具栏介绍" class="headerlink" title="侧边工具栏介绍"></a>侧边工具栏介绍</h3><p>上半部分基本是设计区域查看相关按钮，通常资深玩家们都不会去点击。（因为可以用鼠标上下左右划拉的手势来控制，以及可以ctrl+滚轮来滚大滚小呀）<br>下面三个是常用的。<br>红色框里的是设计校验，经常点就是了；<br>黑色框里的是IPI设置窗口，一定会用到的；<br>蓝色框框里面这个，是“立正”按钮。没错，点一下，所有IP都得“向前看”。排的整整齐齐。<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170208/220952701.png-960img" alt=""></p>
+<p>基本操作这里就差不多了。</p>
+<h2 id="设计实现"><a href="#设计实现" class="headerlink" title="设计实现"></a>设计实现</h2><h3 id="那么接下来，在已经做完IPI里的IP设置和连接后。"><a href="#那么接下来，在已经做完IPI里的IP设置和连接后。" class="headerlink" title="那么接下来，在已经做完IPI里的IP设置和连接后。"></a>那么接下来，在已经做完IPI里的IP设置和连接后。</h3><p>首先当然是保存啦。<br>ctrl+S就OK。</p>
+<h3 id="创建HDL顶层"><a href="#创建HDL顶层" class="headerlink" title="创建HDL顶层"></a>创建HDL顶层</h3><p>实际上IPI的设计仍然是要加HDL为顶层进行后续实现流程的。<br>不过这个HDL工具可以自动生成。<br>在Source窗口，对着我们IPI生成的BD文件右键，选择创建HDL封装。<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170208/221841522.png-960img" alt=""><br>通常呢，怎么是请Vivado工具来对这个HDL封装进行维护的。<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170208/222043911.png-960img" alt=""><br>另外，我们需要右键点击生成后续实现流程中需要的文件。<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170208/222231668.png-960img" alt=""><br>这里会列出生成文件的用途，综合方式（专门开博讲综合吧），以及运行这个过程你调用几个CPU核来跑。各位玩家就往大的选吧，能有多大，全看各位CPU。<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170208/222201803.png" alt=""></p>
+<p>完成之后，IPI的设计流程中<strong>特殊的部分</strong>就到此为止了。<br>后面就和HDL流程一致了。（咱顶层都已经是HDL，凭什么还不一致呢）</p>
+<h1 id="这一篇就到这里。"><a href="#这一篇就到这里。" class="headerlink" title="这一篇就到这里。"></a>这一篇就到这里。</h1><h1 id="下一篇咱们介绍几个，IPI下玩家们在设计中一定会用到的IP。"><a href="#下一篇咱们介绍几个，IPI下玩家们在设计中一定会用到的IP。" class="headerlink" title="下一篇咱们介绍几个，IPI下玩家们在设计中一定会用到的IP。"></a>下一篇咱们介绍几个，IPI下玩家们在设计中一定会用到的IP。</h1><hr>
 <h2 id=""><a href="#" class="headerlink" title=""></a>
 <div id="MySignature" style="display: block;">
 
@@ -502,6 +461,7 @@ mso-bidi-font-size:11.0pt;color:red"> 心 </span></u></b><span style="color:red"
 </div>
 </body>
 </html>
+
 
 
       
@@ -549,6 +509,10 @@ mso-bidi-font-size:11.0pt;color:red"> 心 </span></u></b><span style="color:red"
           
             <a href="/tags/Vivado/" rel="tag"># Vivado</a>
           
+            <a href="/tags/Vivado-IP/" rel="tag"># Vivado IP</a>
+          
+            <a href="/tags/Vivado-IPI/" rel="tag"># Vivado IPI</a>
+          
         </div>
       
 
@@ -556,8 +520,8 @@ mso-bidi-font-size:11.0pt;color:red"> 心 </span></u></b><span style="color:red"
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/06/ultrafast-0/" rel="next" title="UltraFast设计方法学之初窥门径">
-                <i class="fa fa-chevron-left"></i> UltraFast设计方法学之初窥门径
+              <a href="/2017/02/08/vivadobase-ipi-0/" rel="next" title="Vivado IP集成器（IPI）介绍">
+                <i class="fa fa-chevron-left"></i> Vivado IP集成器（IPI）介绍
               </a>
             
           </div>
@@ -566,8 +530,8 @@ mso-bidi-font-size:11.0pt;color:red"> 心 </span></u></b><span style="color:red"
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/02/08/vivado-license/" rel="prev" title="Vivado license 申请指南">
-                Vivado license 申请指南 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/02/08/vivadobase-ipi-2/" rel="prev" title="Vivado IP集成器（IPI）必知必会IP核">
+                Vivado IP集成器（IPI）必知必会IP核 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -619,8 +583,8 @@ var jiathis_config={
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/02/07/esater-egg/"
-           data-title="Vivado安装包-最小体积版本" data-url="http://fpgaplayer.com/2017/02/07/esater-egg/">
+      <div class="ds-thread" data-thread-key="2017/02/08/vivadobase-ipi-1/"
+           data-title="Vivado IP集成器（IPI）基本设计流程" data-url="http://fpgaplayer.com/2017/02/08/vivadobase-ipi-1/">
       </div>
     
   </div>
@@ -758,7 +722,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#完整版Vivado安装包"><span class="nav-number">1.</span> <span class="nav-text">完整版Vivado安装包</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#我们来看一下，如果选择全部完整安装的话。需要吃掉多少硬盘空间吧"><span class="nav-number">1.1.</span> <span class="nav-text">我们来看一下，如果选择全部完整安装的话。需要吃掉多少硬盘空间吧</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#因此，为便于初学者在使用之初不必下载数十G的安装文件，以及不必安装完全不需要的组件。FPGAPlayer-com为各位玩家们给出了最小体积版本的Vivado安装方案。"><span class="nav-number">1.2.</span> <span class="nav-text">因此，为便于初学者在使用之初不必下载数十G的安装文件，以及不必安装完全不需要的组件。FPGAPlayer.com为各位玩家们给出了最小体积版本的Vivado安装方案。</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#那么玩家们应该挑选哪个版本下载呢？"><span class="nav-number">2.</span> <span class="nav-text">那么玩家们应该挑选哪个版本下载呢？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#如果你需要使用到以下器件中的某一个"><span class="nav-number">2.1.</span> <span class="nav-text"> 如果你需要使用到以下器件中的某一个 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如果你需要使用到以下器件中的某一个-1"><span class="nav-number">2.2.</span> <span class="nav-text"> 如果你需要使用到以下器件中的某一个 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如果你还需要使用SDK"><span class="nav-number">2.3.</span> <span class="nav-text"> 如果你还需要使用SDK </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如果你需要使用到以下器件中的某一个："><span class="nav-number">2.4.</span> <span class="nav-text">如果你需要使用到以下器件中的某一个： </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如果上述器件不涵盖你所需要使用的器件"><span class="nav-number">2.5.</span> <span class="nav-text">如果上述器件不涵盖你所需要使用的器件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装流程"><span class="nav-number">3.</span> <span class="nav-text">安装流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#最后附上获取方式以及声明"><span class="nav-number">4.</span> <span class="nav-text">最后附上获取方式以及声明</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#获取方式"><span class="nav-number">4.1.</span> <span class="nav-text">获取方式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#相关文章"><span class="nav-number">5.</span> <span class="nav-text">相关文章</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">5.1.</span> <span class="nav-text">
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#IPI-设计流程"><span class="nav-number">1.</span> <span class="nav-text">IPI 设计流程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建工程"><span class="nav-number">1.1.</span> <span class="nav-text">创建工程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建IPI设计"><span class="nav-number">1.2.</span> <span class="nav-text">创建IPI设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加IP"><span class="nav-number">1.3.</span> <span class="nav-text">添加IP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本操作"><span class="nav-number">1.4.</span> <span class="nav-text">基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#连线"><span class="nav-number">1.4.1.</span> <span class="nav-text">连线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模块重命名"><span class="nav-number">1.4.2.</span> <span class="nav-text">模块重命名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#端口信号创建以及重命名"><span class="nav-number">1.4.3.</span> <span class="nav-text">端口信号创建以及重命名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IP设置"><span class="nav-number">1.4.4.</span> <span class="nav-text">IP设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#侧边工具栏介绍"><span class="nav-number">1.4.5.</span> <span class="nav-text">侧边工具栏介绍</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计实现"><span class="nav-number">1.5.</span> <span class="nav-text">设计实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#那么接下来，在已经做完IPI里的IP设置和连接后。"><span class="nav-number">1.5.1.</span> <span class="nav-text">那么接下来，在已经做完IPI里的IP设置和连接后。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建HDL顶层"><span class="nav-number">1.5.2.</span> <span class="nav-text">创建HDL顶层</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#这一篇就到这里。"><span class="nav-number">2.</span> <span class="nav-text">这一篇就到这里。</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#下一篇咱们介绍几个，IPI下玩家们在设计中一定会用到的IP。"><span class="nav-number">3.</span> <span class="nav-text">下一篇咱们介绍几个，IPI下玩家们在设计中一定会用到的IP。</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">3.1.</span> <span class="nav-text">
 
 
   

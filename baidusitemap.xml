@@ -4,12 +4,12 @@
 
     
   <url>
-    <loc>http://fpgaplayer.com/2017/02/08/vivado-license/</loc>
-    <lastmod>2017-02-08T12:15:57.822Z</lastmod>
+    <loc>http://fpgaplayer.com/2017/02/06/vivadobase-0/</loc>
+    <lastmod>2017-02-08T12:25:59.890Z</lastmod>
     <data>
         <display>
-        <title>Vivado license 申请指南</title>
-        <pubTime>2017-02-08T11:29:32.000Z</pubTime>
+        <title>Vivado工具入门-下载与安装</title>
+        <pubTime>2017-02-06T01:47:26.000Z</pubTime>
         
         <tag>Vivado</tag>
          
@@ -25,11 +25,31 @@
     
   <url>
     <loc>http://fpgaplayer.com/2017/02/07/esater-egg/</loc>
-    <lastmod>2017-02-08T11:24:48.346Z</lastmod>
+    <lastmod>2017-02-08T12:25:56.241Z</lastmod>
     <data>
         <display>
         <title>Vivado安装包-最小体积版本</title>
         <pubTime>2017-02-07T11:47:21.000Z</pubTime>
+        
+        <tag>Vivado</tag>
+         
+         
+           
+             
+              <breadCrumb title="工具" url="http://fpgaplayer.com/categories/%E5%B7%A5%E5%85%B7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://fpgaplayer.com/2017/02/08/vivado-license/</loc>
+    <lastmod>2017-02-08T12:25:20.600Z</lastmod>
+    <data>
+        <display>
+        <title>Vivado license 申请指南</title>
+        <pubTime>2017-02-08T11:29:32.000Z</pubTime>
         
         <tag>Vivado</tag>
          
@@ -77,26 +97,6 @@
            
              
               <breadCrumb title="博客测试" url="http://fpgaplayer.com/categories/%E5%8D%9A%E5%AE%A2%E6%B5%8B%E8%AF%95/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://fpgaplayer.com/2017/02/06/vivadobase-0/</loc>
-    <lastmod>2017-02-06T15:36:20.138Z</lastmod>
-    <data>
-        <display>
-        <title>Vivado工具入门-下载与安装</title>
-        <pubTime>2017-02-06T01:47:26.000Z</pubTime>
-        
-        <tag>Vivado</tag>
-         
-         
-           
-             
-              <breadCrumb title="工具" url="http://fpgaplayer.com/categories/%E5%B7%A5%E5%85%B7/"/>
           
         </display>
     </data>

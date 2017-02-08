@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://fpgaplayer.com/2017/02/08/vivado-license/</loc>
+    <loc>http://fpgaplayer.com/2017/02/06/vivadobase-0/</loc>
     
-    <lastmod>2017-02-08T12:15:57.822Z</lastmod>
+    <lastmod>2017-02-08T12:25:59.890Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://fpgaplayer.com/2017/02/07/esater-egg/</loc>
     
-    <lastmod>2017-02-08T11:24:48.346Z</lastmod>
+    <lastmod>2017-02-08T12:25:56.241Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fpgaplayer.com/2017/02/08/vivado-license/</loc>
+    
+    <lastmod>2017-02-08T12:25:20.600Z</lastmod>
     
   </url>
   
@@ -26,13 +33,6 @@
     <loc>http://fpgaplayer.com/2017/02/02/Testing/</loc>
     
     <lastmod>2017-02-07T14:13:25.996Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://fpgaplayer.com/2017/02/06/vivadobase-0/</loc>
-    
-    <lastmod>2017-02-06T15:36:20.138Z</lastmod>
     
   </url>
   

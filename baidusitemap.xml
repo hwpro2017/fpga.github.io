@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://fpgaplayer.com/2017/02/07/esater-egg/</loc>
+    <lastmod>2017-02-08T11:22:57.403Z</lastmod>
+    <data>
+        <display>
+        <title>Vivado安装包-最小体积版本</title>
+        <pubTime>2017-02-07T11:47:21.000Z</pubTime>
+        
+        <tag>Vivado</tag>
+         
+         
+           
+             
+              <breadCrumb title="工具" url="http://fpgaplayer.com/categories/%E5%B7%A5%E5%85%B7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://fpgaplayer.com/2017/02/05/todolist/</loc>
     <lastmod>2017-02-07T14:14:17.751Z</lastmod>
     <data>
@@ -37,26 +57,6 @@
            
              
               <breadCrumb title="博客测试" url="http://fpgaplayer.com/categories/%E5%8D%9A%E5%AE%A2%E6%B5%8B%E8%AF%95/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://fpgaplayer.com/2017/02/07/esater-egg/</loc>
-    <lastmod>2017-02-07T12:37:41.579Z</lastmod>
-    <data>
-        <display>
-        <title>Vivado安装包-最小体积版本</title>
-        <pubTime>2017-02-07T11:47:21.000Z</pubTime>
-        
-        <tag>Vivado</tag>
-         
-         
-           
-             
-              <breadCrumb title="工具" url="http://fpgaplayer.com/categories/%E5%B7%A5%E5%85%B7/"/>
           
         </display>
     </data>

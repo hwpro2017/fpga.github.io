@@ -10,5 +10,5 @@ Disallow: /fonts/
 Disallow: /vendors/
 
 
-Sitemap: http://fpgaplayer.com/sitemap.xml
-Sitemap: http://fpgaplayer.com/baidusitemap.xml
+Sitemap: http://blog.fpgaplayer.com/sitemap.xml
+Sitemap: http://blog.fpgaplayer.com/baidusitemap.xml

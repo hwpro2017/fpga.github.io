@@ -93,7 +93,7 @@
 <meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170206/175956620.png-960img">
 <meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170206/181610097.png-960img">
 <meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170206/182239523.png-960img">
-<meta property="og:updated_time" content="2017-02-06T15:36:18.578Z">
+<meta property="og:updated_time" content="2017-02-13T10:55:27.665Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在Windows下使用ISE">
 <meta name="twitter:description" content="赛灵思ISE开发环境是很多老玩家一直以来在使用的FPGA开发环境。这几年PC OS逐渐升级到了Windows10时代，众多玩家们的机器也升级到了win10；然而ISE在Win10下却不能正常战斗了，这也一度成为玩家们拒绝升级OS的理由。Win10下真不能用ISE了么？WIN10下真不能用Planahead了么？当然不是，下面我们就来列举一些方案，如何在Windows10下使用ISE以及Planah">
@@ -408,7 +408,7 @@
 <p>定位至路径：</p>
 <p><install_path>\Xilinx\14.7\ISE_DS\ISE\lib\nt64\<br>文件重命名：<br>将”libPortability.dll” 改为 “libPortability.dll.orig”<br>文件重命名：<br>将”libPortabilityNOSH.dll” 改为 “libPortability.dll”</install_path></p>
 <p>定位至路径：</p>
-<p><install_path>\Xilinx\14.7\ISE_DS\common\lib\nt64\<br>文件重命名：<br>将”libPortability.dll” 改为 “libPortability.dll.orig”<br>文件重命名：<br>将”libPortabilityNOSH.dll” 改为 “libPortability.dll”</install_path></p>
+<p><install_path>\Xilinx\14.7\ISE_DS\common\lib\nt64\<br>文件重命名：<br>将”libPortability.dll” 改为 “libPortability.dll.orig”<br>文件粘贴：<br>将之前步骤中”libPortabilityNOSH.dll” 改为 “libPortability.dll”的文件复制过来</install_path></p>
 <p>接下来就可以在Win10 Win8.1下正常使用ISE 14.7 啦！</p>
 <h2 id="在Win10下使用-PlanAhead-14-7"><a href="#在Win10下使用-PlanAhead-14-7" class="headerlink" title="在Win10下使用 PlanAhead 14.7"></a>在Win10下使用 PlanAhead 14.7</h2><p>与ISE 14.7的问题不同，在Win10下 PlanAhead 14.7会遇到Java Runtime Environment fatal error，类似这样的信息：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">****** PlanAhead v14.7 (64-bit)</div><div class="line">  **** Build 321239 by xbuild on Fri Sep 27 19:29:51 MDT 2013</div><div class="line">    ** Copyright 1986-1999, 2001-2013 Xilinx, Inc. All Rights Reserved.</div><div class="line"></div><div class="line">INFO: [Common 17-78] Attempting to get a license: PlanAhead</div><div class="line">INFO: [Common 17-290] Got license for PlanAhead</div><div class="line">INFO: [Common 17-86] Your PlanAhead license expires in 19 day(s)</div><div class="line">INFO: [Device 21-36] Loading parts and site information from C:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/arch.xml</div><div class="line">Parsing RTL primitives file [C:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]</div><div class="line">Finished parsing RTL primitives file [C:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]</div><div class="line">start_gui</div><div class="line">#</div><div class="line"># A fatal error has been detected by the Java Runtime Environment:</div><div class="line">#</div><div class="line">#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x0000000000360000, pid=30740, tid=31220</div><div class="line">#</div><div class="line"># JRE version: 7.0_17-b02</div><div class="line"># Java VM: Java HotSpot(TM) 64-Bit Server VM (23.7-b01 mixed mode windows-amd64 compressed oops)</div><div class="line"># Problematic frame:</div><div class="line"># C  0x0000000000360000</div><div class="line">#</div><div class="line"># Failed to write core dump. Minidumps are not enabled by default on client versions of Windows</div><div class="line">#</div><div class="line"># An error report file with more information is saved as:</div><div class="line"># hs_err_pidXXXXX.log</div><div class="line">#</div><div class="line"># If you would like to submit a bug report, please visit:</div><div class="line">#   http://bugreport.sun.com/bugreport/crash.jsp</div><div class="line"># The crash happened outside the Java Virtual Machine in native code.</div><div class="line"># See problematic frame for where to report the bug.</div><div class="line">#</div></pre></td></tr></table></figure></p>
 <p>解决办法：<br>右键PlanAhead启动快捷键或开始菜单中启动图标，打开属性窗口如图。</p>
@@ -614,7 +614,7 @@ var jiathis_config={
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -632,7 +632,7 @@ var jiathis_config={
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

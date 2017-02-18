@@ -4,6 +4,56 @@
 
     
   <url>
+    <loc>http://fpgaplayer.com/2017/02/08/koheronsdk-base3/</loc>
+    <lastmod>2017-02-18T05:24:40.989Z</lastmod>
+    <data>
+        <display>
+        <title>Koheron SDK使用指南之项目编译log</title>
+        <pubTime>2017-02-08T12:53:46.000Z</pubTime>
+        
+        <tag>ZYNQ</tag>
+         
+        <tag>Koheron SDK</tag>
+         
+         
+           
+             
+              <breadCrumb title="教程" url="http://fpgaplayer.com/categories/%E6%95%99%E7%A8%8B/"/>
+          
+             
+              <breadCrumb title="Koheron SDK" url="http://fpgaplayer.com/categories/%E6%95%99%E7%A8%8B/Koheron-SDK/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://fpgaplayer.com/2017/02/08/koheronsdk-base1/</loc>
+    <lastmod>2017-02-18T05:21:02.601Z</lastmod>
+    <data>
+        <display>
+        <title>Koheron SDK使用指南之开发环境搭建</title>
+        <pubTime>2017-02-08T12:53:46.000Z</pubTime>
+        
+        <tag>ZYNQ</tag>
+         
+        <tag>Koheron SDK</tag>
+         
+         
+           
+             
+              <breadCrumb title="教程" url="http://fpgaplayer.com/categories/%E6%95%99%E7%A8%8B/"/>
+          
+             
+              <breadCrumb title="Koheron SDK" url="http://fpgaplayer.com/categories/%E6%95%99%E7%A8%8B/Koheron-SDK/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://fpgaplayer.com/2017/02/16/vivadoflow-1/</loc>
     <lastmod>2017-02-16T13:26:56.202Z</lastmod>
     <data>

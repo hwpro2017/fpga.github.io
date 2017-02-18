@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Vivado," />
+  <meta name="keywords" content="ZYNQ,Koheron SDK," />
 
 
 
@@ -84,18 +84,24 @@
 
 
 
-<meta name="description" content="这里给出的是博主专为 FPGAPlayer.com 的初级玩家们精心压制的超小容量Vivado安装包。更新Linux版本安装包。">
+<meta name="description" content="本文介绍Koheron SDK 开发环境使用所需的上位机环境搭建的完整流程。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vivado安装包-最小体积版本">
-<meta property="og:url" content="http://fpgaplayer.com/2017/02/11/esater-egg/index.html">
+<meta property="og:title" content="Koheron SDK使用指南之开发环境搭建">
+<meta property="og:url" content="http://fpgaplayer.com/2017/02/08/koheronsdk-base1/index.html">
 <meta property="og:site_name" content="FPGA Player">
-<meta property="og:description" content="这里给出的是博主专为 FPGAPlayer.com 的初级玩家们精心压制的超小容量Vivado安装包。更新Linux版本安装包。">
-<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170207/183440653.png-960img">
-<meta property="og:updated_time" content="2017-02-13T09:35:58.352Z">
+<meta property="og:description" content="本文介绍Koheron SDK 开发环境使用所需的上位机环境搭建的完整流程。">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170218/131217736.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170218/131340588.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170218/131443265.png-960IMG">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170218/131606569.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170218/131751552.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170218/131821063.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170218/131916933.png-960img">
+<meta property="og:updated_time" content="2017-02-18T05:21:02.601Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vivado安装包-最小体积版本">
-<meta name="twitter:description" content="这里给出的是博主专为 FPGAPlayer.com 的初级玩家们精心压制的超小容量Vivado安装包。更新Linux版本安装包。">
-<meta name="twitter:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170207/183440653.png-960img">
+<meta name="twitter:title" content="Koheron SDK使用指南之开发环境搭建">
+<meta name="twitter:description" content="本文介绍Koheron SDK 开发环境使用所需的上位机环境搭建的完整流程。">
+<meta name="twitter:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170218/131217736.png-960img">
 
 
 
@@ -123,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://fpgaplayer.com/2017/02/11/esater-egg/"/>
+  <link rel="canonical" href="http://fpgaplayer.com/2017/02/08/koheronsdk-base1/"/>
 
 
 
 
 
-  <title> Vivado安装包-最小体积版本 | FPGA Player </title>
+  <title> Koheron SDK使用指南之开发环境搭建 | FPGA Player </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -292,7 +298,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://fpgaplayer.com/2017/02/11/esater-egg/">
+  <link itemprop="mainEntityOfPage" href="http://fpgaplayer.com/2017/02/08/koheronsdk-base1/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="FPGA玩家">
@@ -316,7 +322,7 @@
             
             
               
-                Vivado安装包-最小体积版本
+                Koheron SDK使用指南之开发环境搭建
               
             
           </h1>
@@ -331,8 +337,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-11T19:47:21+08:00">
-                2017-02-11
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-08T20:53:46+08:00">
+                2017-02-08
               </time>
             
 
@@ -354,8 +360,19 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工具/" itemprop="url" rel="index">
-                    <span itemprop="name">工具</span>
+                  <a href="/categories/教程/" itemprop="url" rel="index">
+                    <span itemprop="name">教程</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/教程/Koheron-SDK/" itemprop="url" rel="index">
+                    <span itemprop="name">Koheron SDK</span>
                   </a>
                 </span>
 
@@ -372,8 +389,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/02/11/esater-egg/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/11/esater-egg/" itemprop="commentCount"></span>
+                <a href="/2017/02/08/koheronsdk-base1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/08/koheronsdk-base1/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -404,87 +421,24 @@
       
 
       
-        <p>这里给出的是博主专为 FPGAPlayer.com 的初级玩家们精心压制的超小容量Vivado安装包。<br>更新Linux版本安装包。</p>
+        <p>本文介绍Koheron SDK 开发环境使用所需的上位机环境搭建的完整流程。</p>
 <a id="more"></a>
-<h1 id="完整版Vivado安装包"><a href="#完整版Vivado安装包" class="headerlink" title="完整版Vivado安装包"></a>完整版Vivado安装包</h1><h2 id="我们来看一下，如果选择全部完整安装的话。需要吃掉多少硬盘空间吧"><a href="#我们来看一下，如果选择全部完整安装的话。需要吃掉多少硬盘空间吧" class="headerlink" title="我们来看一下，如果选择全部完整安装的话。需要吃掉多少硬盘空间吧"></a>我们来看一下，如果选择全部完整安装的话。需要吃掉多少硬盘空间吧</h2><p><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170207/183440653.png-960img" alt=""></p>
-<p>是的噢，65G！！！<br>即便是安装完后把安装包删掉，那也还有接近50G！！</p>
-<p>这里附上完整版下载与安装流程：<a href="http://blog.fpgaplayer.com/2017/02/06/vivadobase-0/" target="_blank" rel="external">Vivado工具入门-下载与安装</a></p>
-<h2 id="因此，为便于初学者在使用之初不必下载数十G的安装文件，以及不必安装完全不需要的组件。FPGAPlayer-com为各位玩家们给出了最小体积版本的Vivado安装方案。"><a href="#因此，为便于初学者在使用之初不必下载数十G的安装文件，以及不必安装完全不需要的组件。FPGAPlayer-com为各位玩家们给出了最小体积版本的Vivado安装方案。" class="headerlink" title="因此，为便于初学者在使用之初不必下载数十G的安装文件，以及不必安装完全不需要的组件。FPGAPlayer.com为各位玩家们给出了最小体积版本的Vivado安装方案。"></a><strong>因此，为便于初学者在使用之初不必下载数十G的安装文件，以及不必安装完全不需要的组件。FPGAPlayer.com为各位玩家们给出了最小体积版本的Vivado安装方案。</strong></h2><h1 id="Vivado2016-4安装包-FPGAPlayer高压版"><a href="#Vivado2016-4安装包-FPGAPlayer高压版" class="headerlink" title="Vivado2016.4安装包-FPGAPlayer高压版"></a>Vivado2016.4安装包-FPGAPlayer高压版</h1><p>链接：</p>
-<p><a href="http://pan.baidu.com/s/1jIfX0SQ" target="_blank" rel="external">http://pan.baidu.com/s/1jIfX0SQ</a> </p>
-<p>密码：</p>
-<p>xz1v</p>
-<h2 id="那么玩家们应该挑选哪个版本下载呢？"><a href="#那么玩家们应该挑选哪个版本下载呢？" class="headerlink" title="那么玩家们应该挑选哪个版本下载呢？"></a>那么玩家们应该挑选哪个版本下载呢？</h2><hr>
-<h3 id="如果你需要使用到以下器件中的某一个"><a href="#如果你需要使用到以下器件中的某一个" class="headerlink" title=" 如果你需要使用到以下器件中的某一个 "></a><strong> 如果你需要使用到以下器件中的某一个 </strong></h3><ul>
-<li>Artix®-7 (XC7A15T、  XC7A35T、 XC7A50T、 XC7A75T、 XC7A100T、 XC7A200T)</li>
-<li>Kintex®-7 (XC7K70T、 XC7K160T)</li>
-<li>Zynq®-7000 All Programmable SoC(XC7Z007S – XC7Z7030)</li>
-</ul>
-<p><strong>请选择Vivado_2016.4_WebPack_ZYNQ_A7_K7_HLS_noSDK</strong></p>
-<ul>
-<li>安装包容量： 2.68G</li>
-<li>安装后容量： 8.5G以内</li>
-</ul>
-<hr>
-<h3 id="如果你需要使用到以下器件中的某一个-1"><a href="#如果你需要使用到以下器件中的某一个-1" class="headerlink" title=" 如果你需要使用到以下器件中的某一个 "></a><strong> 如果你需要使用到以下器件中的某一个 </strong></h3><ul>
-<li>Zynq®-7000 All Programmable SoC(XC7Z007S – XC7Z7030)</li>
-</ul>
-<p><strong>请选择Vivado_2016.4_WebPack_ZYNQ_noSDK</strong></p>
-<ul>
-<li>安装包容量： 2.45G</li>
-<li>安装后容量： 7.5G以内</li>
-</ul>
-<hr>
-<h3 id="如果你还需要使用SDK"><a href="#如果你还需要使用SDK" class="headerlink" title=" 如果你还需要使用SDK "></a><strong> 如果你还需要使用SDK </strong></h3><ul>
-<li>Artix®-7 (XC7A15T、  XC7A35T、 XC7A50T、 XC7A75T、 XC7A100T、 XC7A200T)</li>
-<li>Kintex®-7 (XC7K70T、 XC7K160T)</li>
-<li>Zynq®-7000 All Programmable SoC(XC7Z007S – XC7Z7030)</li>
-</ul>
-<p><strong>请“！！额外！！”选择Vivado_2016.4_WebPack_SDK_only</strong></p>
-<ul>
-<li>安装包容量： 1.55G</li>
-<li>安装后容量： 9.5G以内</li>
-</ul>
-<p>是的，你没看错，如果要用SDK的话，需要额外再使用近10G的硬盘空间来安装SDK工具；<br>SDK工具安装过程中解压出接近7G的GUN 工具链，所以没办法啦，已经是最小了。</p>
-<hr>
-<h3 id="如果你需要使用到以下器件中的某一个："><a href="#如果你需要使用到以下器件中的某一个：" class="headerlink" title="如果你需要使用到以下器件中的某一个： "></a><strong>如果你需要使用到以下器件中的某一个： </strong></h3><ul>
-<li>Zynq UltraScale+™ MPSoC (XCZU2CG/EG, XCZU3CG/EG) </li>
-</ul>
-<p><strong>请等待Vivado 2017.1版</strong></p>
-<hr>
-<h3 id="如果上述器件不涵盖你所需要使用的器件"><a href="#如果上述器件不涵盖你所需要使用的器件" class="headerlink" title="如果上述器件不涵盖你所需要使用的器件"></a><strong>如果上述器件不涵盖你所需要使用的器件</strong></h3><ul>
-<li>那么你一定不算是初级玩家了，请下载System版本吧，如需帮助请留言联系。</li>
-</ul>
-<hr>
-<h2 id="如果时Linux环境下安装"><a href="#如果时Linux环境下安装" class="headerlink" title="如果时Linux环境下安装"></a>如果时Linux环境下安装</h2><h3 id="如果你需要使用到以下器件中的某一个-2"><a href="#如果你需要使用到以下器件中的某一个-2" class="headerlink" title=" 如果你需要使用到以下器件中的某一个 "></a><strong> 如果你需要使用到以下器件中的某一个 </strong></h3><ul>
-<li>Zynq®-7000 All Programmable SoC(XC7Z007S – XC7Z7030)</li>
-</ul>
-<p><strong>请选择Vivado_2016.4_linux_ZYNQ_only.tar.gz</strong></p>
-<ul>
-<li>安装包容量： 2.45G</li>
-<li>安装后容量： 7.5G以内</li>
-</ul>
-<hr>
-<h3 id="如果你还需要使用SDK-1"><a href="#如果你还需要使用SDK-1" class="headerlink" title=" 如果你还需要使用SDK "></a><strong> 如果你还需要使用SDK </strong></h3><p><strong>请“！！额外！！”选择Vivado_2016.4_linux_SDK_only.tar.gz</strong></p>
-<ul>
-<li>安装包容量： 1.43G</li>
-</ul>
-<hr>
-<h2 id="Linux下Vivado安装注意事项"><a href="#Linux下Vivado安装注意事项" class="headerlink" title="Linux下Vivado安装注意事项"></a>Linux下Vivado安装注意事项</h2><p>需要额外安装Jtag Cable的驱动程序。<br>具体步骤可参考相关博文。</p>
-<h1 id="安装流程"><a href="#安装流程" class="headerlink" title="安装流程"></a>安装流程</h1><ol>
-<li>解压安装包</li>
-<li>打开xsetup.exe</li>
-<li>点击next</li>
-<li>勾选三个I Agree</li>
-<li>连续点击next到选择安装路径界面</li>
-<li>选择安装路径</li>
-<li>再次点击next进行安装</li>
-<li>等待安装完成</li>
-</ol>
-<hr>
-<h1 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h1><p>上述Vivado安装文件来自XILINX官网，FPGAPlayer.com仅针对安装组件重新配置选择后压缩，以便于初学者在使用之初不必下载数十G的安装文件，以及不必安装完全不需要的组件。以上安装文件版权不属于FPGAPlayer.com，如有相关人士认为FPGAPlayer.com做法不妥，请联系hwpro2017@163.com。</p>
+<h1 id="Koheron-SDK-开发环境使用指南-上位机环境搭建流程"><a href="#Koheron-SDK-开发环境使用指南-上位机环境搭建流程" class="headerlink" title="Koheron SDK 开发环境使用指南-上位机环境搭建流程"></a>Koheron SDK 开发环境使用指南-上位机环境搭建流程</h1><h2 id="上位机OS"><a href="#上位机OS" class="headerlink" title="上位机OS"></a>上位机OS</h2><p>Ubuntu 16.04<br>Koheron SDK 运行需要在 Ubuntu 16.04 OS下进行，因此需要我们上位机环境为Ubuntu 16.04；<br>可以安装好双系统，或使用虚拟机进行安装。</p>
+<h2 id="Vivado环境安装"><a href="#Vivado环境安装" class="headerlink" title="Vivado环境安装"></a>Vivado环境安装</h2><p>Koheron SDK 运行需要使用Vivado，我们需要安装 Vivado 2016.4；<br>具体安装流程可参考之前发布的相关博文： <a href="http://blog.fpgaplayer.com/2017/02/06/vivadobase-0/" target="_blank" rel="external">点击这里</a></p>
+<p>安装Vivado完成之后需要对环境进行一些调整：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">path=/opt/Xilinx/$&#123;folder&#125;/$&#123;vivado_release&#125;/lib/lnx64.o</div><div class="line">mv $path/libstdc++.so.6 $path/libstdc++.so.6.orig</div><div class="line">ln -s /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.21 $path/libstdc++.so.6</div><div class="line">mv $path/libmpfr.so.4 $path/libmpfr.so.4.orig</div><div class="line">ln -s /usr/lib/x86_64-linux-gnu/libmpfr.so.4 $path/libmpfr.so.4</div><div class="line"></div><div class="line">$ sudo ln -s make /usr/bin/gmake # tells Vivado to use make instead of gmake</div></pre></td></tr></table></figure></p>
+<p><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170218/131217736.png-960img" alt=""></p>
+<p><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170218/131340588.png-960img" alt=""></p>
+<h2 id="安装Koheron-SDK"><a href="#安装Koheron-SDK" class="headerlink" title="安装Koheron SDK"></a>安装Koheron SDK</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Install git and clone Koheron SDK repository:</div><div class="line">$ sudo apt-get install git</div><div class="line">$ git clone https://github.com/Koheron/koheron-sdk.git</div></pre></td></tr></table></figure>
+<p><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170218/131443265.png-960IMG" alt=""></p>
+<h2 id="安装ZYNQ相关软件编译环境"><a href="#安装ZYNQ相关软件编译环境" class="headerlink" title="安装ZYNQ相关软件编译环境"></a>安装ZYNQ相关软件编译环境</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Install packages needed to build Linux (device tree, U-boot, kernel and Ubuntu root file system):</div><div class="line">$ sudo apt-get install g++-arm-linux-gnueabihf lib32stdc++6 \</div><div class="line">lib32z1 u-boot-tools libssl-dev bc \</div><div class="line">device-tree-compiler qemu-user-static zerofree</div></pre></td></tr></table></figure>
+<p><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170218/131606569.png-960img" alt=""></p>
+<h2 id="安装Python"><a href="#安装Python" class="headerlink" title="安装Python"></a>安装Python</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-get install curl zip python-virtualenv python-pip</div><div class="line">$ sudo pip install --upgrade pip</div></pre></td></tr></table></figure>
+<p><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170218/131751552.png-960img" alt=""></p>
+<p><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170218/131821063.png-960img" alt=""><br>在koheron-sdk目录下执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo pip install -r requirements.txt</div></pre></td></tr></table></figure></p>
+<p><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170218/131916933.png-960img" alt=""></p>
+<h1 id="OK"><a href="#OK" class="headerlink" title="OK"></a>OK</h1><p>##<br>Koheron SDK相关介绍，开发流程，教程请参加相关博文。</p>
 <h1 id="相关文章"><a href="#相关文章" class="headerlink" title="相关文章"></a>相关文章</h1><ol>
-<li>Vivado license 申请指南  <a href="http://blog.fpgaplayer.com/2017/02/08/vivado-license/" target="_blank" rel="external">点击此处</a></li>
-<li>Vivado工具入门-下载与安装 <a href="http://blog.fpgaplayer.com/2017/02/06/vivadobase-0/" target="_blank" rel="external">点击此处</a></li>
+<li>Koheron SDK介绍 <a href="http://blog.fpgaplayer.com/" target="_blank" rel="external">点击此处</a></li>
 </ol>
 <hr>
 <h2 id=""><a href="#" class="headerlink" title=""></a>
@@ -517,6 +471,7 @@ mso-bidi-font-size:11.0pt;color:red"> 心 </span></u></b><span style="color:red"
 </div>
 </body>
 </html>
+
 
 
       
@@ -562,7 +517,9 @@ mso-bidi-font-size:11.0pt;color:red"> 心 </span></u></b><span style="color:red"
       
         <div class="post-tags">
           
-            <a href="/tags/Vivado/" rel="tag"># Vivado</a>
+            <a href="/tags/ZYNQ/" rel="tag"># ZYNQ</a>
+          
+            <a href="/tags/Koheron-SDK/" rel="tag"># Koheron SDK</a>
           
         </div>
       
@@ -571,8 +528,8 @@ mso-bidi-font-size:11.0pt;color:red"> 心 </span></u></b><span style="color:red"
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/08/vivadobase-ipi-1/" rel="next" title="Vivado IP集成器（IPI）基本设计流程">
-                <i class="fa fa-chevron-left"></i> Vivado IP集成器（IPI）基本设计流程
+              <a href="/2017/02/08/vivado-license/" rel="next" title="Vivado license 申请指南">
+                <i class="fa fa-chevron-left"></i> Vivado license 申请指南
               </a>
             
           </div>
@@ -581,8 +538,8 @@ mso-bidi-font-size:11.0pt;color:red"> 心 </span></u></b><span style="color:red"
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/02/15/vivadoflow-0/" rel="prev" title="Vivado上手教程0-工作模式">
-                Vivado上手教程0-工作模式 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/02/08/vivadobase-ipi-0/" rel="prev" title="Vivado IP集成器（IPI）介绍">
+                Vivado IP集成器（IPI）介绍 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -634,8 +591,8 @@ var jiathis_config={
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/02/11/esater-egg/"
-           data-title="Vivado安装包-最小体积版本" data-url="http://fpgaplayer.com/2017/02/11/esater-egg/">
+      <div class="ds-thread" data-thread-key="2017/02/08/koheronsdk-base1/"
+           data-title="Koheron SDK使用指南之开发环境搭建" data-url="http://fpgaplayer.com/2017/02/08/koheronsdk-base1/">
       </div>
     
   </div>
@@ -777,7 +734,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#完整版Vivado安装包"><span class="nav-number">1.</span> <span class="nav-text">完整版Vivado安装包</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#我们来看一下，如果选择全部完整安装的话。需要吃掉多少硬盘空间吧"><span class="nav-number">1.1.</span> <span class="nav-text">我们来看一下，如果选择全部完整安装的话。需要吃掉多少硬盘空间吧</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#因此，为便于初学者在使用之初不必下载数十G的安装文件，以及不必安装完全不需要的组件。FPGAPlayer-com为各位玩家们给出了最小体积版本的Vivado安装方案。"><span class="nav-number">1.2.</span> <span class="nav-text">因此，为便于初学者在使用之初不必下载数十G的安装文件，以及不必安装完全不需要的组件。FPGAPlayer.com为各位玩家们给出了最小体积版本的Vivado安装方案。</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Vivado2016-4安装包-FPGAPlayer高压版"><span class="nav-number">2.</span> <span class="nav-text">Vivado2016.4安装包-FPGAPlayer高压版</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#那么玩家们应该挑选哪个版本下载呢？"><span class="nav-number">2.1.</span> <span class="nav-text">那么玩家们应该挑选哪个版本下载呢？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#如果你需要使用到以下器件中的某一个"><span class="nav-number">2.1.1.</span> <span class="nav-text"> 如果你需要使用到以下器件中的某一个 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如果你需要使用到以下器件中的某一个-1"><span class="nav-number">2.1.2.</span> <span class="nav-text"> 如果你需要使用到以下器件中的某一个 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如果你还需要使用SDK"><span class="nav-number">2.1.3.</span> <span class="nav-text"> 如果你还需要使用SDK </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如果你需要使用到以下器件中的某一个："><span class="nav-number">2.1.4.</span> <span class="nav-text">如果你需要使用到以下器件中的某一个： </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如果上述器件不涵盖你所需要使用的器件"><span class="nav-number">2.1.5.</span> <span class="nav-text">如果上述器件不涵盖你所需要使用的器件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如果时Linux环境下安装"><span class="nav-number">2.2.</span> <span class="nav-text">如果时Linux环境下安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#如果你需要使用到以下器件中的某一个-2"><span class="nav-number">2.2.1.</span> <span class="nav-text"> 如果你需要使用到以下器件中的某一个 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如果你还需要使用SDK-1"><span class="nav-number">2.2.2.</span> <span class="nav-text"> 如果你还需要使用SDK </span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux下Vivado安装注意事项"><span class="nav-number">2.3.</span> <span class="nav-text">Linux下Vivado安装注意事项</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装流程"><span class="nav-number">3.</span> <span class="nav-text">安装流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#声明"><span class="nav-number">4.</span> <span class="nav-text">声明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#相关文章"><span class="nav-number">5.</span> <span class="nav-text">相关文章</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">5.1.</span> <span class="nav-text">
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Koheron-SDK-开发环境使用指南-上位机环境搭建流程"><span class="nav-number">1.</span> <span class="nav-text">Koheron SDK 开发环境使用指南-上位机环境搭建流程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#上位机OS"><span class="nav-number">1.1.</span> <span class="nav-text">上位机OS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vivado环境安装"><span class="nav-number">1.2.</span> <span class="nav-text">Vivado环境安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Koheron-SDK"><span class="nav-number">1.3.</span> <span class="nav-text">安装Koheron SDK</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装ZYNQ相关软件编译环境"><span class="nav-number">1.4.</span> <span class="nav-text">安装ZYNQ相关软件编译环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Python"><span class="nav-number">1.5.</span> <span class="nav-text">安装Python</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OK"><span class="nav-number">2.</span> <span class="nav-text">OK</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#相关文章"><span class="nav-number">3.</span> <span class="nav-text">相关文章</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">3.1.</span> <span class="nav-text">
 
 
   

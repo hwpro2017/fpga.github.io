@@ -4,12 +4,12 @@
 
     
   <url>
-    <loc>http://fpgaplayer.com/2017/02/08/koheronsdk-base3/</loc>
-    <lastmod>2017-02-18T05:24:40.989Z</lastmod>
+    <loc>http://fpgaplayer.com/2017/12/08/koheronsdk-base1/</loc>
+    <lastmod>2017-02-18T05:27:11.611Z</lastmod>
     <data>
         <display>
-        <title>Koheron SDK使用指南之项目编译log</title>
-        <pubTime>2017-02-08T12:53:46.000Z</pubTime>
+        <title>Koheron SDK使用指南之开发环境搭建</title>
+        <pubTime>2017-12-08T02:13:46.000Z</pubTime>
         
         <tag>ZYNQ</tag>
          
@@ -29,12 +29,12 @@
 
     
   <url>
-    <loc>http://fpgaplayer.com/2017/02/08/koheronsdk-base1/</loc>
-    <lastmod>2017-02-18T05:21:02.601Z</lastmod>
+    <loc>http://fpgaplayer.com/2017/02/18/koheronsdk-base3/</loc>
+    <lastmod>2017-02-18T05:26:58.401Z</lastmod>
     <data>
         <display>
-        <title>Koheron SDK使用指南之开发环境搭建</title>
-        <pubTime>2017-02-08T12:53:46.000Z</pubTime>
+        <title>Koheron SDK使用指南之项目编译log</title>
+        <pubTime>2017-02-18T02:53:46.000Z</pubTime>
         
         <tag>ZYNQ</tag>
          

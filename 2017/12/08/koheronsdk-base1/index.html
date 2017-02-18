@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Testing," />
+  <meta name="keywords" content="ZYNQ,Koheron SDK," />
 
 
 
@@ -84,16 +84,24 @@
 
 
 
-<meta name="description" content="fpgaplayer即日起正式开博啦；先挖一些坑，接下来就这些主题持续更新！主要会就FPGA尤其是Xilinx FPGA的最新技术、工具、器件等主题展开，将详细介绍当前最主流最前沿的可编程逻辑设计技术；此外，也会向各位玩家介绍一些目前FPGA主流平台和一些开源项目。">
+<meta name="description" content="本文介绍Koheron SDK 开发环境使用所需的上位机环境搭建的完整流程。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="开博挖坑">
-<meta property="og:url" content="http://fpgaplayer.com/2017/02/05/todolist/index.html">
+<meta property="og:title" content="Koheron SDK使用指南之开发环境搭建">
+<meta property="og:url" content="http://fpgaplayer.com/2017/12/08/koheronsdk-base1/index.html">
 <meta property="og:site_name" content="FPGA Player">
-<meta property="og:description" content="fpgaplayer即日起正式开博啦；先挖一些坑，接下来就这些主题持续更新！主要会就FPGA尤其是Xilinx FPGA的最新技术、工具、器件等主题展开，将详细介绍当前最主流最前沿的可编程逻辑设计技术；此外，也会向各位玩家介绍一些目前FPGA主流平台和一些开源项目。">
-<meta property="og:updated_time" content="2017-02-07T14:14:17.751Z">
+<meta property="og:description" content="本文介绍Koheron SDK 开发环境使用所需的上位机环境搭建的完整流程。">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170218/131217736.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170218/131340588.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170218/131443265.png-960IMG">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170218/131606569.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170218/131751552.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170218/131821063.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170218/131916933.png-960img">
+<meta property="og:updated_time" content="2017-02-18T05:27:11.611Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="开博挖坑">
-<meta name="twitter:description" content="fpgaplayer即日起正式开博啦；先挖一些坑，接下来就这些主题持续更新！主要会就FPGA尤其是Xilinx FPGA的最新技术、工具、器件等主题展开，将详细介绍当前最主流最前沿的可编程逻辑设计技术；此外，也会向各位玩家介绍一些目前FPGA主流平台和一些开源项目。">
+<meta name="twitter:title" content="Koheron SDK使用指南之开发环境搭建">
+<meta name="twitter:description" content="本文介绍Koheron SDK 开发环境使用所需的上位机环境搭建的完整流程。">
+<meta name="twitter:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170218/131217736.png-960img">
 
 
 
@@ -121,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://fpgaplayer.com/2017/02/05/todolist/"/>
+  <link rel="canonical" href="http://fpgaplayer.com/2017/12/08/koheronsdk-base1/"/>
 
 
 
 
 
-  <title> 开博挖坑 | FPGA Player </title>
+  <title> Koheron SDK使用指南之开发环境搭建 | FPGA Player </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -290,7 +298,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://fpgaplayer.com/2017/02/05/todolist/">
+  <link itemprop="mainEntityOfPage" href="http://fpgaplayer.com/2017/12/08/koheronsdk-base1/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="FPGA玩家">
@@ -314,7 +322,7 @@
             
             
               
-                开博挖坑
+                Koheron SDK使用指南之开发环境搭建
               
             
           </h1>
@@ -329,8 +337,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-05T00:27:08+08:00">
-                2017-02-05
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-08T10:13:46+08:00">
+                2017-12-08
               </time>
             
 
@@ -352,8 +360,19 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/其他/" itemprop="url" rel="index">
-                    <span itemprop="name">其他</span>
+                  <a href="/categories/教程/" itemprop="url" rel="index">
+                    <span itemprop="name">教程</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/教程/Koheron-SDK/" itemprop="url" rel="index">
+                    <span itemprop="name">Koheron SDK</span>
                   </a>
                 </span>
 
@@ -370,8 +389,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/02/05/todolist/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/05/todolist/" itemprop="commentCount"></span>
+                <a href="/2017/12/08/koheronsdk-base1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/12/08/koheronsdk-base1/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -402,39 +421,25 @@
       
 
       
-        <p><strong>fpgaplayer即日起正式开博啦；</strong><br>先挖一些坑，接下来就这些主题持续更新！<br>主要会就FPGA尤其是Xilinx FPGA的最新技术、工具、器件等主题展开，将详细介绍当前最主流最前沿的可编程逻辑设计技术；此外，也会向各位玩家介绍一些目前FPGA主流平台和一些开源项目。</p>
+        <p>本文介绍Koheron SDK 开发环境使用所需的上位机环境搭建的完整流程。</p>
 <a id="more"></a>
-<h1 id="开博挖坑"><a href="#开博挖坑" class="headerlink" title="开博挖坑"></a>开博挖坑</h1><h2 id="类别暂定如下categories"><a href="#类别暂定如下categories" class="headerlink" title="类别暂定如下categories"></a>类别暂定如下categories</h2><ul>
-<li>博客测试</li>
-<li>工具</li>
-<li>原理</li>
-<li>教程</li>
-<li>介绍</li>
-<li>新闻</li>
-<li>其他</li>
-<li><h2 id="标签如下tags"><a href="#标签如下tags" class="headerlink" title="标签如下tags"></a>标签如下tags</h2></li>
-<li><p>Testing</p>
-</li>
-<li>Another Tag</li>
-<li>Vivado</li>
-<li>Vivado SDK</li>
-<li>Vivado IPI</li>
-<li>Vivado VLA</li>
-<li>Vivado IP</li>
-<li>SDSoc</li>
-<li>SDAccel</li>
-<li>SDNet</li>
-<li>UltraFast</li>
-<li>FPGA Device</li>
-<li>ZYNQ</li>
-<li>MPSOC</li>
-<li>NEWs</li>
-<li>PYNQ</li>
-<li>Tcl</li>
-<li>Linux</li>
-<li>ISE</li>
-<li></li>
-</ul>
+<h1 id="Koheron-SDK-开发环境使用指南-上位机环境搭建流程"><a href="#Koheron-SDK-开发环境使用指南-上位机环境搭建流程" class="headerlink" title="Koheron SDK 开发环境使用指南-上位机环境搭建流程"></a>Koheron SDK 开发环境使用指南-上位机环境搭建流程</h1><h2 id="上位机OS"><a href="#上位机OS" class="headerlink" title="上位机OS"></a>上位机OS</h2><p>Ubuntu 16.04<br>Koheron SDK 运行需要在 Ubuntu 16.04 OS下进行，因此需要我们上位机环境为Ubuntu 16.04；<br>可以安装好双系统，或使用虚拟机进行安装。</p>
+<h2 id="Vivado环境安装"><a href="#Vivado环境安装" class="headerlink" title="Vivado环境安装"></a>Vivado环境安装</h2><p>Koheron SDK 运行需要使用Vivado，我们需要安装 Vivado 2016.4；<br>具体安装流程可参考之前发布的相关博文： <a href="http://blog.fpgaplayer.com/2017/02/06/vivadobase-0/" target="_blank" rel="external">点击这里</a></p>
+<p>安装Vivado完成之后需要对环境进行一些调整：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">path=/opt/Xilinx/$&#123;folder&#125;/$&#123;vivado_release&#125;/lib/lnx64.o</div><div class="line">mv $path/libstdc++.so.6 $path/libstdc++.so.6.orig</div><div class="line">ln -s /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.21 $path/libstdc++.so.6</div><div class="line">mv $path/libmpfr.so.4 $path/libmpfr.so.4.orig</div><div class="line">ln -s /usr/lib/x86_64-linux-gnu/libmpfr.so.4 $path/libmpfr.so.4</div><div class="line"></div><div class="line">$ sudo ln -s make /usr/bin/gmake # tells Vivado to use make instead of gmake</div></pre></td></tr></table></figure></p>
+<p><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170218/131217736.png-960img" alt=""></p>
+<p><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170218/131340588.png-960img" alt=""></p>
+<h2 id="安装Koheron-SDK"><a href="#安装Koheron-SDK" class="headerlink" title="安装Koheron SDK"></a>安装Koheron SDK</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Install git and clone Koheron SDK repository:</div><div class="line">$ sudo apt-get install git</div><div class="line">$ git clone https://github.com/Koheron/koheron-sdk.git</div></pre></td></tr></table></figure>
+<p><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170218/131443265.png-960IMG" alt=""></p>
+<h2 id="安装ZYNQ相关软件编译环境"><a href="#安装ZYNQ相关软件编译环境" class="headerlink" title="安装ZYNQ相关软件编译环境"></a>安装ZYNQ相关软件编译环境</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Install packages needed to build Linux (device tree, U-boot, kernel and Ubuntu root file system):</div><div class="line">$ sudo apt-get install g++-arm-linux-gnueabihf lib32stdc++6 \</div><div class="line">lib32z1 u-boot-tools libssl-dev bc \</div><div class="line">device-tree-compiler qemu-user-static zerofree</div></pre></td></tr></table></figure>
+<p><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170218/131606569.png-960img" alt=""></p>
+<h2 id="安装Python"><a href="#安装Python" class="headerlink" title="安装Python"></a>安装Python</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-get install curl zip python-virtualenv python-pip</div><div class="line">$ sudo pip install --upgrade pip</div></pre></td></tr></table></figure>
+<p><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170218/131751552.png-960img" alt=""></p>
+<p><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170218/131821063.png-960img" alt=""><br>在koheron-sdk目录下执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo pip install -r requirements.txt</div></pre></td></tr></table></figure></p>
+<p><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170218/131916933.png-960img" alt=""></p>
+<h1 id="OK"><a href="#OK" class="headerlink" title="OK"></a>OK</h1><p>##<br>Koheron SDK相关介绍，开发流程，教程请参加相关博文。</p>
+<h1 id="相关文章"><a href="#相关文章" class="headerlink" title="相关文章"></a>相关文章</h1><ol>
+<li>Koheron SDK介绍 <a href="http://blog.fpgaplayer.com/" target="_blank" rel="external">点击此处</a></li>
+</ol>
 <hr>
 <h2 id=""><a href="#" class="headerlink" title=""></a>
 <div id="MySignature" style="display: block;">
@@ -512,7 +517,9 @@ mso-bidi-font-size:11.0pt;color:red"> 心 </span></u></b><span style="color:red"
       
         <div class="post-tags">
           
-            <a href="/tags/Testing/" rel="tag"># Testing</a>
+            <a href="/tags/ZYNQ/" rel="tag"># ZYNQ</a>
+          
+            <a href="/tags/Koheron-SDK/" rel="tag"># Koheron SDK</a>
           
         </div>
       
@@ -521,8 +528,8 @@ mso-bidi-font-size:11.0pt;color:red"> 心 </span></u></b><span style="color:red"
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/02/Testing/" rel="next" title="博客测试-博主专区">
-                <i class="fa fa-chevron-left"></i> 博客测试-博主专区
+              <a href="/2017/02/18/koheronsdk-base3/" rel="next" title="Koheron SDK使用指南之项目编译log">
+                <i class="fa fa-chevron-left"></i> Koheron SDK使用指南之项目编译log
               </a>
             
           </div>
@@ -530,10 +537,6 @@ mso-bidi-font-size:11.0pt;color:red"> 心 </span></u></b><span style="color:red"
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/06/vivadobase-0/" rel="prev" title="Vivado工具入门-下载与安装">
-                Vivado工具入门-下载与安装 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -584,8 +587,8 @@ var jiathis_config={
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/02/05/todolist/"
-           data-title="开博挖坑" data-url="http://fpgaplayer.com/2017/02/05/todolist/">
+      <div class="ds-thread" data-thread-key="2017/12/08/koheronsdk-base1/"
+           data-title="Koheron SDK使用指南之开发环境搭建" data-url="http://fpgaplayer.com/2017/12/08/koheronsdk-base1/">
       </div>
     
   </div>
@@ -727,7 +730,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#开博挖坑"><span class="nav-number">1.</span> <span class="nav-text">开博挖坑</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#类别暂定如下categories"><span class="nav-number">1.1.</span> <span class="nav-text">类别暂定如下categories</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标签如下tags"><span class="nav-number">1.2.</span> <span class="nav-text">标签如下tags</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">1.3.</span> <span class="nav-text">
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Koheron-SDK-开发环境使用指南-上位机环境搭建流程"><span class="nav-number">1.</span> <span class="nav-text">Koheron SDK 开发环境使用指南-上位机环境搭建流程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#上位机OS"><span class="nav-number">1.1.</span> <span class="nav-text">上位机OS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vivado环境安装"><span class="nav-number">1.2.</span> <span class="nav-text">Vivado环境安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Koheron-SDK"><span class="nav-number">1.3.</span> <span class="nav-text">安装Koheron SDK</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装ZYNQ相关软件编译环境"><span class="nav-number">1.4.</span> <span class="nav-text">安装ZYNQ相关软件编译环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Python"><span class="nav-number">1.5.</span> <span class="nav-text">安装Python</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OK"><span class="nav-number">2.</span> <span class="nav-text">OK</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#相关文章"><span class="nav-number">3.</span> <span class="nav-text">相关文章</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">3.1.</span> <span class="nav-text">
 
 
   

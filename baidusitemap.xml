@@ -4,6 +4,56 @@
 
     
   <url>
+    <loc>http://fpgaplayer.com/2017/12/08/koheronsdk-base0/</loc>
+    <lastmod>2017-02-18T05:54:13.279Z</lastmod>
+    <data>
+        <display>
+        <title>Koheron SDK使用指南之框架介绍</title>
+        <pubTime>2017-12-08T03:13:46.000Z</pubTime>
+        
+        <tag>ZYNQ</tag>
+         
+        <tag>Koheron SDK</tag>
+         
+         
+           
+             
+              <breadCrumb title="教程" url="http://fpgaplayer.com/categories/%E6%95%99%E7%A8%8B/"/>
+          
+             
+              <breadCrumb title="Koheron SDK" url="http://fpgaplayer.com/categories/%E6%95%99%E7%A8%8B/Koheron-SDK/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://fpgaplayer.com/2017/12/08/koheronsdk-base2/</loc>
+    <lastmod>2017-02-18T05:41:36.305Z</lastmod>
+    <data>
+        <display>
+        <title>Koheron SDK使用指南之项目编译</title>
+        <pubTime>2017-12-08T03:13:46.000Z</pubTime>
+        
+        <tag>ZYNQ</tag>
+         
+        <tag>Koheron SDK</tag>
+         
+         
+           
+             
+              <breadCrumb title="教程" url="http://fpgaplayer.com/categories/%E6%95%99%E7%A8%8B/"/>
+          
+             
+              <breadCrumb title="Koheron SDK" url="http://fpgaplayer.com/categories/%E6%95%99%E7%A8%8B/Koheron-SDK/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://fpgaplayer.com/2017/12/08/koheronsdk-base1/</loc>
     <lastmod>2017-02-18T05:27:11.611Z</lastmod>
     <data>

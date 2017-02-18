@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Vivado,Vivado IP,Vivado IPI," />
+  <meta name="keywords" content="ZYNQ,Koheron SDK," />
 
 
 
@@ -84,19 +84,19 @@
 
 
 
-<meta name="description" content="什么是Vivado IPI IP集成器？Vivado中可以用画图方式进行设计么？Vivado支持可视化原理图方式设计么?IP集成器有什么独特之处吗？">
+<meta name="description" content="本文介绍Koheron SDK 开发环境下项目编译的详细流程。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vivado IP集成器（IPI）介绍">
-<meta property="og:url" content="http://fpgaplayer.com/2017/02/08/vivadobase-ipi-0/index.html">
+<meta property="og:title" content="Koheron SDK使用指南之项目编译">
+<meta property="og:url" content="http://fpgaplayer.com/2017/12/08/koheronsdk-base2/index.html">
 <meta property="og:site_name" content="FPGA Player">
-<meta property="og:description" content="什么是Vivado IPI IP集成器？Vivado中可以用画图方式进行设计么？Vivado支持可视化原理图方式设计么?IP集成器有什么独特之处吗？">
-<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170208/210238851.png-960img">
-<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170208/210755708.png-960img">
-<meta property="og:updated_time" content="2017-02-08T14:58:44.966Z">
+<meta property="og:description" content="本文介绍Koheron SDK 开发环境下项目编译的详细流程。">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170218/133339361.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170218/133806442.png-960img">
+<meta property="og:updated_time" content="2017-02-18T05:41:36.305Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vivado IP集成器（IPI）介绍">
-<meta name="twitter:description" content="什么是Vivado IPI IP集成器？Vivado中可以用画图方式进行设计么？Vivado支持可视化原理图方式设计么?IP集成器有什么独特之处吗？">
-<meta name="twitter:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170208/210238851.png-960img">
+<meta name="twitter:title" content="Koheron SDK使用指南之项目编译">
+<meta name="twitter:description" content="本文介绍Koheron SDK 开发环境下项目编译的详细流程。">
+<meta name="twitter:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170218/133339361.png-960img">
 
 
 
@@ -124,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://fpgaplayer.com/2017/02/08/vivadobase-ipi-0/"/>
+  <link rel="canonical" href="http://fpgaplayer.com/2017/12/08/koheronsdk-base2/"/>
 
 
 
 
 
-  <title> Vivado IP集成器（IPI）介绍 | FPGA Player </title>
+  <title> Koheron SDK使用指南之项目编译 | FPGA Player </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -293,7 +293,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://fpgaplayer.com/2017/02/08/vivadobase-ipi-0/">
+  <link itemprop="mainEntityOfPage" href="http://fpgaplayer.com/2017/12/08/koheronsdk-base2/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="FPGA玩家">
@@ -317,7 +317,7 @@
             
             
               
-                Vivado IP集成器（IPI）介绍
+                Koheron SDK使用指南之项目编译
               
             
           </h1>
@@ -332,8 +332,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-08T20:53:46+08:00">
-                2017-02-08
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-08T11:13:46+08:00">
+                2017-12-08
               </time>
             
 
@@ -362,6 +362,17 @@
 
                 
                 
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/教程/Koheron-SDK/" itemprop="url" rel="index">
+                    <span itemprop="name">Koheron SDK</span>
+                  </a>
+                </span>
+
+                
+                
               
             </span>
           
@@ -373,8 +384,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/02/08/vivadobase-ipi-0/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/08/vivadobase-ipi-0/" itemprop="commentCount"></span>
+                <a href="/2017/12/08/koheronsdk-base2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/12/08/koheronsdk-base2/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -405,32 +416,29 @@
       
 
       
-        <p>什么是Vivado IPI IP集成器？<br>Vivado中可以用画图方式进行设计么？<br>Vivado支持可视化原理图方式设计么?<br>IP集成器有什么独特之处吗？</p>
+        <p>本文介绍Koheron SDK 开发环境下项目编译的详细流程。</p>
 <a id="more"></a>
-<h1 id="什么是-Vivado-IP集成器"><a href="#什么是-Vivado-IP集成器" class="headerlink" title="什么是 Vivado IP集成器"></a>什么是 Vivado IP集成器</h1><p>Vivado IP集成器（IPI）是Vivado集成开发环境提供的IP集成设计界面，；IP集成器是一个图形化，支持脚本配置与连接的设计开发环境。在IP集成器中玩家们不仅可使用IP进行基于处理器的设计还可以进行非处理器的纯逻辑设计开发；另外，Vivado还提供了IP封装器，玩家们可以将自己的设计封装成标准IP以供其他玩家设计复用；当然，通过IP集成器完成的设计同样还可通过IP封装器来封装成IP。</p>
-<p>在Vivado中，有一个叫做IP Catalog（IP列表）的地方，专门用来列出工具中所有的IP，包含：</p>
-<ol>
-<li>Xilinx提供的官方IP；</li>
-<li>第三方合作伙伴提供的IP；</li>
-<li>玩家们自己封装的IP；</li>
-</ol>
-<h1 id="以IP为中心进行设计"><a href="#以IP为中心进行设计" class="headerlink" title="以IP为中心进行设计"></a>以IP为中心进行设计</h1><p>所以，IPI以及IP Catalog的地位是这样的：</p>
-<p><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170208/210238851.png-960img" alt=""></p>
-<p>图中所示，我们可以看出，在Vivado中玩家们可以通过RTL、IPI、SYSGEN、HLS等多种不同方式来进行设计开发，在设计中可以调用IP Catalog中的IP； 另外，所做的设计或设计的某一部分，又可以通过IP封装器封装成IP反馈回IP Catalog中用于其他设计文件或其他玩家的设计中去。</p>
-<h1 id="主角-IPI"><a href="#主角-IPI" class="headerlink" title="主角 IPI"></a>主角 IPI</h1><p>如果说IP Catalog是设计的弹药库，那么以IP为设计的主要战场，就是在IP集成器中，下面我们来熟悉一下战场地形：<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170208/210755708.png-960img" alt=""><br>图中可见，仍然是在Vivado的主界面中，不同的是主窗口的部分是一个图形化的设计区域，在这里我们右键选ADD IP即可调出弹药库（IP Catalog）来调兵遣将，搭建IP设计。</p>
-<p>时代发展到今天，图形化设计方式已和大家印象中的所谓原理图设计方式有了巨大的区别。玩家们在IPI中便可以充分感受到这种高科技，比如：</p>
-<ol>
-<li>实时设计检查DRC，IPI会实时报出不恰当的IP设置/链接</li>
-<li>自动连接，IPI可智能识别一部分接口连接，辅助玩家进行设计</li>
-<li>系统集成，基于AXI总线，自动完成动辄数十上百根信号的总线连接</li>
-<li>参数传递，随着总线连接，相应参数会进行传递</li>
-<li>搭建设计快速高效</li>
-<li>等等等等</li>
-</ol>
-<p>OK<br>介绍就到这里，具体实战操作以及IPI下的小技巧，我们后面继续讨论。</p>
+<h1 id="Koheron-SDK-开发环境使用指南-项目编译"><a href="#Koheron-SDK-开发环境使用指南-项目编译" class="headerlink" title="Koheron SDK 开发环境使用指南-项目编译"></a>Koheron SDK 开发环境使用指南-项目编译</h1><h2 id="Build-变量"><a href="#Build-变量" class="headerlink" title="Build 变量"></a>Build 变量</h2><p>项目Build以及Run有两个主要的变量：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">•	NAME: instrument name </div><div class="line">•	HOST: FPGA board IP address</div></pre></td></tr></table></figure></p>
+<h2 id="整体-Build-命令"><a href="#整体-Build-命令" class="headerlink" title="整体 Build 命令"></a>整体 Build 命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ make NAME=my_instrument</div></pre></td></tr></table></figure>
+<p>该命令仅针对项目进行编译，编译结果打包zip</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ make NAME=adc_dac HOST=192.168.1.42 run</div></pre></td></tr></table></figure>
+<p>该命令会对项目进行编译，编译结果打包zip并上传执行<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170218/133339361.png-960img" alt=""></p>
+<h2 id="Step-by-step-Build-命令"><a href="#Step-by-step-Build-命令" class="headerlink" title="Step-by-step Build 命令"></a>Step-by-step Build 命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ make NAME=my_instrument server # TCP server</div><div class="line">$ make NAME=my_instrument xpr    # Vivado project</div><div class="line">$ make NAME=my_instrument bit    # Bitstream</div></pre></td></tr></table></figure>
+<p>分别进行对应部分的编译流程。</p>
+<h2 id="Build-linux"><a href="#Build-linux" class="headerlink" title="Build linux"></a>Build linux</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ make NAME=my_instrument linux # instrument, device tree, U-boot and Linux kernel.</div></pre></td></tr></table></figure>
+<p>生成该项目工程以及OS相关文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo bash os/scripts/image.sh my_instrument # SD card image with Ubuntu 16.04 root file system</div></pre></td></tr></table></figure>
+<p>生成含有该项目的Linux文件系统镜像</p>
+<p><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170218/133806442.png-960img" alt=""></p>
+<h2 id="Vivado-GUI-下的工程操作"><a href="#Vivado-GUI-下的工程操作" class="headerlink" title="Vivado GUI 下的工程操作"></a>Vivado GUI 下的工程操作</h2><p>打开Vivado GUI进入Vivado IP集成器进行设计<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ make NAME=my_instrument bd</div></pre></td></tr></table></figure></p>
+<p>打开Vivado GUI进行IP设计与验证<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ make CORE=fpga/cores/my_core test_core</div></pre></td></tr></table></figure></p>
+<p>打开Vivado GUI进行模块设计与验证<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ make IPATH=fpga/modules/my_module test_module</div></pre></td></tr></table></figure></p>
+<h2 id="Clean设计"><a href="#Clean设计" class="headerlink" title="Clean设计"></a>Clean设计</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">make clean # all</div></pre></td></tr></table></figure>
+<p>删掉全部<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">make NAME=my_instrument clean_instrument # my_instrument</div></pre></td></tr></table></figure></p>
+<p>删掉所有该仪器相关文件如：adc_dac.<em> 以及adc_dac-</em>。Zip</p>
+<p>#<br>Koheron SDK相关介绍，开发流程，教程请参加相关博文。</p>
 <h1 id="相关文章"><a href="#相关文章" class="headerlink" title="相关文章"></a>相关文章</h1><ol>
-<li>Vivado IP集成器（IPI）基本设计流程 <a href="http://blog.fpgaplayer.com/2017/02/08/vivadobase-ipi-1/" target="_blank" rel="external">点击此处</a></li>
-<li>Vivado IP集成器（IPI）必知必会IP核 <a href="http://blog.fpgaplayer.com/2017/02/08/vivadobase-ipi-2/" target="_blank" rel="external">点击此处</a></li>
+<li>Koheron SDK介绍 <a href="http://blog.fpgaplayer.com/" target="_blank" rel="external">点击此处</a></li>
 </ol>
 <hr>
 <h2 id=""><a href="#" class="headerlink" title=""></a>
@@ -509,11 +517,9 @@ mso-bidi-font-size:11.0pt;color:red"> 心 </span></u></b><span style="color:red"
       
         <div class="post-tags">
           
-            <a href="/tags/Vivado/" rel="tag"># Vivado</a>
+            <a href="/tags/ZYNQ/" rel="tag"># ZYNQ</a>
           
-            <a href="/tags/Vivado-IP/" rel="tag"># Vivado IP</a>
-          
-            <a href="/tags/Vivado-IPI/" rel="tag"># Vivado IPI</a>
+            <a href="/tags/Koheron-SDK/" rel="tag"># Koheron SDK</a>
           
         </div>
       
@@ -522,8 +528,8 @@ mso-bidi-font-size:11.0pt;color:red"> 心 </span></u></b><span style="color:red"
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/08/vivadobase-ipi-1/" rel="next" title="Vivado IP集成器（IPI）基本设计流程">
-                <i class="fa fa-chevron-left"></i> Vivado IP集成器（IPI）基本设计流程
+              <a href="/2017/12/08/koheronsdk-base1/" rel="next" title="Koheron SDK使用指南之开发环境搭建">
+                <i class="fa fa-chevron-left"></i> Koheron SDK使用指南之开发环境搭建
               </a>
             
           </div>
@@ -532,8 +538,8 @@ mso-bidi-font-size:11.0pt;color:red"> 心 </span></u></b><span style="color:red"
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/02/08/vivadobase-ipi-2/" rel="prev" title="Vivado IP集成器（IPI）必知必会IP核">
-                Vivado IP集成器（IPI）必知必会IP核 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/12/08/koheronsdk-base0/" rel="prev" title="Koheron SDK使用指南之框架介绍">
+                Koheron SDK使用指南之框架介绍 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -585,8 +591,8 @@ var jiathis_config={
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/02/08/vivadobase-ipi-0/"
-           data-title="Vivado IP集成器（IPI）介绍" data-url="http://fpgaplayer.com/2017/02/08/vivadobase-ipi-0/">
+      <div class="ds-thread" data-thread-key="2017/12/08/koheronsdk-base2/"
+           data-title="Koheron SDK使用指南之项目编译" data-url="http://fpgaplayer.com/2017/12/08/koheronsdk-base2/">
       </div>
     
   </div>
@@ -728,7 +734,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是-Vivado-IP集成器"><span class="nav-number">1.</span> <span class="nav-text">什么是 Vivado IP集成器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#以IP为中心进行设计"><span class="nav-number">2.</span> <span class="nav-text">以IP为中心进行设计</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#主角-IPI"><span class="nav-number">3.</span> <span class="nav-text">主角 IPI</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#相关文章"><span class="nav-number">4.</span> <span class="nav-text">相关文章</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">4.1.</span> <span class="nav-text">
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Koheron-SDK-开发环境使用指南-项目编译"><span class="nav-number">1.</span> <span class="nav-text">Koheron SDK 开发环境使用指南-项目编译</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Build-变量"><span class="nav-number">1.1.</span> <span class="nav-text">Build 变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#整体-Build-命令"><span class="nav-number">1.2.</span> <span class="nav-text">整体 Build 命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Step-by-step-Build-命令"><span class="nav-number">1.3.</span> <span class="nav-text">Step-by-step Build 命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Build-linux"><span class="nav-number">1.4.</span> <span class="nav-text">Build linux</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vivado-GUI-下的工程操作"><span class="nav-number">1.5.</span> <span class="nav-text">Vivado GUI 下的工程操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Clean设计"><span class="nav-number">1.6.</span> <span class="nav-text">Clean设计</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#相关文章"><span class="nav-number">2.</span> <span class="nav-text">相关文章</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">2.1.</span> <span class="nav-text">
 
 
   

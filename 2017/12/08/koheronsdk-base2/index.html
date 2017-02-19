@@ -84,19 +84,16 @@
 
 
 
-<meta name="description" content="本文介绍Koheron SDK 开发环境下项目编译的详细流程。">
+<meta name="description" content="本文介绍Koheron SDK 开发环境编译得到的img镜像的装载；以及搭载有该镜像的ZYNQ平台的启动。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Koheron SDK使用指南之项目编译">
+<meta property="og:title" content="Koheron SDK使用指南之镜像装载与硬件启动">
 <meta property="og:url" content="http://fpgaplayer.com/2017/12/08/koheronsdk-base2/index.html">
 <meta property="og:site_name" content="FPGA Player">
-<meta property="og:description" content="本文介绍Koheron SDK 开发环境下项目编译的详细流程。">
-<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170218/133339361.png-960img">
-<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170218/133806442.png-960img">
-<meta property="og:updated_time" content="2017-02-18T05:41:36.305Z">
+<meta property="og:description" content="本文介绍Koheron SDK 开发环境编译得到的img镜像的装载；以及搭载有该镜像的ZYNQ平台的启动。">
+<meta property="og:updated_time" content="2017-02-19T04:02:59.098Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Koheron SDK使用指南之项目编译">
-<meta name="twitter:description" content="本文介绍Koheron SDK 开发环境下项目编译的详细流程。">
-<meta name="twitter:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170218/133339361.png-960img">
+<meta name="twitter:title" content="Koheron SDK使用指南之镜像装载与硬件启动">
+<meta name="twitter:description" content="本文介绍Koheron SDK 开发环境编译得到的img镜像的装载；以及搭载有该镜像的ZYNQ平台的启动。">
 
 
 
@@ -130,7 +127,7 @@
 
 
 
-  <title> Koheron SDK使用指南之项目编译 | FPGA Player </title>
+  <title> Koheron SDK使用指南之镜像装载与硬件启动 | FPGA Player </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -317,7 +314,7 @@
             
             
               
-                Koheron SDK使用指南之项目编译
+                Koheron SDK使用指南之镜像装载与硬件启动
               
             
           </h1>
@@ -416,26 +413,12 @@
       
 
       
-        <p>本文介绍Koheron SDK 开发环境下项目编译的详细流程。</p>
+        <p>本文介绍Koheron SDK 开发环境编译得到的img镜像的装载；<br>以及搭载有该镜像的ZYNQ平台的启动。</p>
 <a id="more"></a>
-<h1 id="Koheron-SDK-开发环境使用指南-项目编译"><a href="#Koheron-SDK-开发环境使用指南-项目编译" class="headerlink" title="Koheron SDK 开发环境使用指南-项目编译"></a>Koheron SDK 开发环境使用指南-项目编译</h1><h2 id="Build-变量"><a href="#Build-变量" class="headerlink" title="Build 变量"></a>Build 变量</h2><p>项目Build以及Run有两个主要的变量：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">•	NAME: instrument name </div><div class="line">•	HOST: FPGA board IP address</div></pre></td></tr></table></figure></p>
-<h2 id="整体-Build-命令"><a href="#整体-Build-命令" class="headerlink" title="整体 Build 命令"></a>整体 Build 命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ make NAME=my_instrument</div></pre></td></tr></table></figure>
-<p>该命令仅针对项目进行编译，编译结果打包zip</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ make NAME=adc_dac HOST=192.168.1.42 run</div></pre></td></tr></table></figure>
-<p>该命令会对项目进行编译，编译结果打包zip并上传执行<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170218/133339361.png-960img" alt=""></p>
-<h2 id="Step-by-step-Build-命令"><a href="#Step-by-step-Build-命令" class="headerlink" title="Step-by-step Build 命令"></a>Step-by-step Build 命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ make NAME=my_instrument server # TCP server</div><div class="line">$ make NAME=my_instrument xpr    # Vivado project</div><div class="line">$ make NAME=my_instrument bit    # Bitstream</div></pre></td></tr></table></figure>
-<p>分别进行对应部分的编译流程。</p>
-<h2 id="Build-linux"><a href="#Build-linux" class="headerlink" title="Build linux"></a>Build linux</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ make NAME=my_instrument linux # instrument, device tree, U-boot and Linux kernel.</div></pre></td></tr></table></figure>
-<p>生成该项目工程以及OS相关文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo bash os/scripts/image.sh my_instrument # SD card image with Ubuntu 16.04 root file system</div></pre></td></tr></table></figure>
-<p>生成含有该项目的Linux文件系统镜像</p>
-<p><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170218/133806442.png-960img" alt=""></p>
-<h2 id="Vivado-GUI-下的工程操作"><a href="#Vivado-GUI-下的工程操作" class="headerlink" title="Vivado GUI 下的工程操作"></a>Vivado GUI 下的工程操作</h2><p>打开Vivado GUI进入Vivado IP集成器进行设计<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ make NAME=my_instrument bd</div></pre></td></tr></table></figure></p>
-<p>打开Vivado GUI进行IP设计与验证<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ make CORE=fpga/cores/my_core test_core</div></pre></td></tr></table></figure></p>
-<p>打开Vivado GUI进行模块设计与验证<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ make IPATH=fpga/modules/my_module test_module</div></pre></td></tr></table></figure></p>
-<h2 id="Clean设计"><a href="#Clean设计" class="headerlink" title="Clean设计"></a>Clean设计</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">make clean # all</div></pre></td></tr></table></figure>
-<p>删掉全部<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">make NAME=my_instrument clean_instrument # my_instrument</div></pre></td></tr></table></figure></p>
-<p>删掉所有该仪器相关文件如：adc_dac.<em> 以及adc_dac-</em>。Zip</p>
+<h1 id="镜像装载"><a href="#镜像装载" class="headerlink" title="镜像装载"></a>镜像装载</h1><h2 id="安装-Win32DiskImager工具"><a href="#安装-Win32DiskImager工具" class="headerlink" title="安装 Win32DiskImager工具"></a>安装 Win32DiskImager工具</h2><p>Win32DiskImager 是Windows下进行img镜像读写的工具。<br>我们可以使用Win32DiskImager来将img镜像装载进SD卡中。</p>
+<p>1.1. 下载 Win32DiskImager<br>1.2. 在 administrator下安装Win32DiskImager. </p>
+<h2 id="镜像装载-1"><a href="#镜像装载-1" class="headerlink" title="镜像装载"></a>镜像装载</h2><p>2.1. 插入  SD card 并运行 Win32DiskImager（管理员模式下）<br>2.2. 指定 os.img 路径并选择SD卡盘符<br><strong>一定不能选错，否则硬盘会被格式化</strong><br>2.3. 点击 Write进行写入</p>
+<p>登录用户：root 密码： changeme </p>
 <p>#<br>Koheron SDK相关介绍，开发流程，教程请参加相关博文。</p>
 <h1 id="相关文章"><a href="#相关文章" class="headerlink" title="相关文章"></a>相关文章</h1><ol>
 <li>Koheron SDK介绍 <a href="http://blog.fpgaplayer.com/" target="_blank" rel="external">点击此处</a></li>
@@ -528,8 +511,8 @@ mso-bidi-font-size:11.0pt;color:red"> 心 </span></u></b><span style="color:red"
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/08/koheronsdk-base1/" rel="next" title="Koheron SDK使用指南之开发环境搭建">
-                <i class="fa fa-chevron-left"></i> Koheron SDK使用指南之开发环境搭建
+              <a href="/2017/12/08/koheronsdk-base0/" rel="next" title="Koheron SDK使用指南之框架介绍">
+                <i class="fa fa-chevron-left"></i> Koheron SDK使用指南之框架介绍
               </a>
             
           </div>
@@ -538,8 +521,8 @@ mso-bidi-font-size:11.0pt;color:red"> 心 </span></u></b><span style="color:red"
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/12/08/koheronsdk-base0/" rel="prev" title="Koheron SDK使用指南之框架介绍">
-                Koheron SDK使用指南之框架介绍 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/12/08/koheronsdk-base6/" rel="prev" title="Koheron SDK使用指南之http接入ZYNQ服务器">
+                Koheron SDK使用指南之http接入ZYNQ服务器 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -592,7 +575,7 @@ var jiathis_config={
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2017/12/08/koheronsdk-base2/"
-           data-title="Koheron SDK使用指南之项目编译" data-url="http://fpgaplayer.com/2017/12/08/koheronsdk-base2/">
+           data-title="Koheron SDK使用指南之镜像装载与硬件启动" data-url="http://fpgaplayer.com/2017/12/08/koheronsdk-base2/">
       </div>
     
   </div>
@@ -639,7 +622,7 @@ var jiathis_config={
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -734,7 +717,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Koheron-SDK-开发环境使用指南-项目编译"><span class="nav-number">1.</span> <span class="nav-text">Koheron SDK 开发环境使用指南-项目编译</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Build-变量"><span class="nav-number">1.1.</span> <span class="nav-text">Build 变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#整体-Build-命令"><span class="nav-number">1.2.</span> <span class="nav-text">整体 Build 命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Step-by-step-Build-命令"><span class="nav-number">1.3.</span> <span class="nav-text">Step-by-step Build 命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Build-linux"><span class="nav-number">1.4.</span> <span class="nav-text">Build linux</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vivado-GUI-下的工程操作"><span class="nav-number">1.5.</span> <span class="nav-text">Vivado GUI 下的工程操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Clean设计"><span class="nav-number">1.6.</span> <span class="nav-text">Clean设计</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#相关文章"><span class="nav-number">2.</span> <span class="nav-text">相关文章</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">2.1.</span> <span class="nav-text">
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#镜像装载"><span class="nav-number">1.</span> <span class="nav-text">镜像装载</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-Win32DiskImager工具"><span class="nav-number">1.1.</span> <span class="nav-text">安装 Win32DiskImager工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#镜像装载-1"><span class="nav-number">1.2.</span> <span class="nav-text">镜像装载</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#相关文章"><span class="nav-number">2.</span> <span class="nav-text">相关文章</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">2.1.</span> <span class="nav-text">
 
 
   

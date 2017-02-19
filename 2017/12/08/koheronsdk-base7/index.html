@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Vivado Flow," />
+  <meta name="keywords" content="ZYNQ,Koheron SDK," />
 
 
 
@@ -84,25 +84,24 @@
 
 
 
-<meta name="description" content="如何创建Vivado工程？关于创建Vivado工程你所应该知道的。。">
+<meta name="description" content="本文介绍在ZYNQ系统上安装Jupyter服务器；">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vivado上手教程1-创建工程">
-<meta property="og:url" content="http://fpgaplayer.com/2017/02/16/vivadoflow-1/index.html">
+<meta property="og:title" content="Koheron SDK使用指南之Jupyter服务器">
+<meta property="og:url" content="http://fpgaplayer.com/2017/12/08/koheronsdk-base7/index.html">
 <meta property="og:site_name" content="FPGA Player">
-<meta property="og:description" content="如何创建Vivado工程？关于创建Vivado工程你所应该知道的。。">
-<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170216/204542175.png-960img">
-<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170216/205610403.png-960img">
-<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170216/205729323.png-960img">
-<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170216/205907994.png-960img">
-<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170216/210742351.png-960img">
-<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170216/211126669.png-960img">
-<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170216/211428992.png-960img">
-<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170216/211535189.png-960img">
-<meta property="og:updated_time" content="2017-02-16T13:26:56.202Z">
+<meta property="og:description" content="本文介绍在ZYNQ系统上安装Jupyter服务器；">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170219/135112857.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170219/135416570.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170219/135648262.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170219/135504602.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170219/135731649.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170219/135920852.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170219/140000983.png-960img">
+<meta property="og:updated_time" content="2017-02-19T06:01:27.721Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vivado上手教程1-创建工程">
-<meta name="twitter:description" content="如何创建Vivado工程？关于创建Vivado工程你所应该知道的。。">
-<meta name="twitter:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170216/204542175.png-960img">
+<meta name="twitter:title" content="Koheron SDK使用指南之Jupyter服务器">
+<meta name="twitter:description" content="本文介绍在ZYNQ系统上安装Jupyter服务器；">
+<meta name="twitter:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170219/135112857.png-960img">
 
 
 
@@ -130,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://fpgaplayer.com/2017/02/16/vivadoflow-1/"/>
+  <link rel="canonical" href="http://fpgaplayer.com/2017/12/08/koheronsdk-base7/"/>
 
 
 
 
 
-  <title> Vivado上手教程1-创建工程 | FPGA Player </title>
+  <title> Koheron SDK使用指南之Jupyter服务器 | FPGA Player </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -299,7 +298,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://fpgaplayer.com/2017/02/16/vivadoflow-1/">
+  <link itemprop="mainEntityOfPage" href="http://fpgaplayer.com/2017/12/08/koheronsdk-base7/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="FPGA玩家">
@@ -323,7 +322,7 @@
             
             
               
-                Vivado上手教程1-创建工程
+                Koheron SDK使用指南之Jupyter服务器
               
             
           </h1>
@@ -338,8 +337,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-16T17:48:48+08:00">
-                2017-02-16
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-08T13:13:46+08:00">
+                2017-12-08
               </time>
             
 
@@ -368,6 +367,17 @@
 
                 
                 
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/教程/Koheron-SDK/" itemprop="url" rel="index">
+                    <span itemprop="name">Koheron SDK</span>
+                  </a>
+                </span>
+
+                
+                
               
             </span>
           
@@ -379,8 +389,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/02/16/vivadoflow-1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/16/vivadoflow-1/" itemprop="commentCount"></span>
+                <a href="/2017/12/08/koheronsdk-base7/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/12/08/koheronsdk-base7/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -411,46 +421,26 @@
       
 
       
-        <p>如何创建Vivado工程？<br>关于创建Vivado工程你所应该知道的。。</p>
+        <p>本文介绍在ZYNQ系统上安装Jupyter服务器；</p>
 <a id="more"></a>
-<h1 id="Vivado创建工程"><a href="#Vivado创建工程" class="headerlink" title="Vivado创建工程"></a>Vivado创建工程</h1><h2 id="按照上一节中所述，任选一种姿势打开Vivado"><a href="#按照上一节中所述，任选一种姿势打开Vivado" class="headerlink" title="按照上一节中所述，任选一种姿势打开Vivado"></a>按照上一节中所述，任选一种姿势打开Vivado</h2><p>如果姿势正确，这是玩家们可以看到如下Vivado界面。<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170216/204542175.png-960img" alt=""><br>在界面中，分有三行三列图标可点：</p>
-<ol>
-<li>Quick Start ： </li>
+<h1 id="安装JUPYTER"><a href="#安装JUPYTER" class="headerlink" title="安装JUPYTER"></a>安装JUPYTER</h1><p>通常在PC下可使用Anaconda安装Jupyter；<br>在ZYNQ系统上，安装Anaconda会比较占用空间，我们可以直接使用pip来安装。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">确保pip更新</div><div class="line">pip install --upgrade pip</div><div class="line">安装Jupyter</div><div class="line">pip3 install jupyter</div></pre></td></tr></table></figure></p>
+<h1 id="运行Jupyter"><a href="#运行Jupyter" class="headerlink" title="运行Jupyter"></a>运行Jupyter</h1><p>在终端中执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jupyter notebook</div></pre></td></tr></table></figure></p>
+<h1 id="配置Jupyter服务器"><a href="#配置Jupyter服务器" class="headerlink" title="配置Jupyter服务器"></a>配置Jupyter服务器</h1><p>终端运行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ipython</div></pre></td></tr></table></figure></p>
+<p>创建远程连接密码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">In [1]: from notebook.auth import passwd; passwd()</div></pre></td></tr></table></figure></p>
+<p>连续输入两次密码，设定远端登录密码；</p>
+<p><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170219/135112857.png-960img" alt=""></p>
+<p>复制SHA1字段</p>
+<p>生成jupyter的配置文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jupyter notebook --generate-config</div></pre></td></tr></table></figure></p>
+<p>在用户目录下会生成隐藏文件夹.jupyter,打开配置文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim ~/.jupyter/jupyter_notebook_config.py</div></pre></td></tr></table></figure></p>
+<p>复制以下内容粘贴到配置文件中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">c.NotebookApp.ip = &apos;*&apos;</div><div class="line">c.NotebookApp.password = u&apos; sha1:d0270e88f33b:212384922803ca9bd49d1fb6c11ab42651ccb358&apos;#改为之前复制的SHA1</div><div class="line">c.NotebookApp.port = 9001</div><div class="line">c.InteractiveShellApp.matplotlib = &apos;inline&apos;</div></pre></td></tr></table></figure></p>
+<h1 id="启动Jupyter服务"><a href="#启动Jupyter服务" class="headerlink" title="启动Jupyter服务"></a>启动Jupyter服务</h1><p>运行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jupyter notebook</div></pre></td></tr></table></figure></p>
+<p><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170219/135416570.png-960img" alt=""></p>
+<h1 id="远端浏览器登录Jupyter"><a href="#远端浏览器登录Jupyter" class="headerlink" title="远端浏览器登录Jupyter"></a>远端浏览器登录Jupyter</h1><p>输入之前设置的密码登录<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170219/135648262.png-960img" alt=""><br>进入Jupyter主页<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170219/135504602.png-960img" alt=""></p>
+<h1 id="PLAY"><a href="#PLAY" class="headerlink" title="PLAY"></a>PLAY</h1><p>新建或打开Jupyter notebook<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170219/135731649.png-960img" alt=""><br>新建或打开http终端<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170219/135920852.png-960img" alt=""><br>进入终端<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170219/140000983.png-960img" alt=""></p>
+<p>#<br>Koheron SDK相关介绍，开发流程，教程请参加相关博文。</p>
+<h1 id="相关文章"><a href="#相关文章" class="headerlink" title="相关文章"></a>相关文章</h1><ol>
+<li>Koheron SDK介绍 <a href="http://blog.fpgaplayer.com/" target="_blank" rel="external">点击此处</a></li>
 </ol>
-<ul>
-<li>Create New Project 创建工程 （本节内容）</li>
-<li>Open Project 打开工程 （常用）</li>
-<li>Open Example Project 打开案例工程（常用）</li>
-</ul>
-<ol>
-<li>Tasks：</li>
-</ol>
-<ul>
-<li>Manage IP 管理IP （后续博文详细介绍）</li>
-<li>Open Hardware Manager 硬件管理器（后续博文详细介绍）</li>
-<li>Xilinx Tcl Store 脚本库（后续博文详细介绍）</li>
-</ul>
-<ol>
-<li>Information Center：</li>
-</ol>
-<ul>
-<li>Documentation and Tutorials 文档中心（常用）</li>
-<li>Quick Take Videos 视频中心（不常用）</li>
-<li>Release Notes Guide 通知中心（不常用）</li>
-</ul>
-<h2 id="创建工程"><a href="#创建工程" class="headerlink" title="创建工程"></a>创建工程</h2><h3 id="首先点击Quick-Start下的Create-New-Project"><a href="#首先点击Quick-Start下的Create-New-Project" class="headerlink" title="首先点击Quick Start下的Create New Project"></a>首先点击Quick Start下的Create New Project</h3><p>这一页没啥可选的，直接NEXT；<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170216/205610403.png-960img" alt=""></p>
-<h3 id="填写工程路径和工程名称"><a href="#填写工程路径和工程名称" class="headerlink" title="填写工程路径和工程名称"></a>填写工程路径和工程名称</h3><p>需要注意的是：<strong>一定不能有中文字符和空格</strong>，此处建议勾选“Create project subdirectory”，继续点击NEXT；<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170216/205729323.png-960img" alt=""></p>
-<h3 id="选择工程类型"><a href="#选择工程类型" class="headerlink" title="选择工程类型"></a>选择工程类型</h3><ul>
-<li>RTL Project ：通常基于VHDL, Verilog, SystemVerilog，EDIF网表为源文件时选择此项工程类型；（大多数情况）</li>
-<li>Post-synthesis Project ：基于已综合后的网表创建工程； </li>
-<li>I/O Planning Project ： 用于做IO规划的工程，可以没有源文件；</li>
-<li>Imported Project ：导入ISE或其他第三方工具如Synplify的工程，注意导入的仅仅只有源文件和编译顺序，而不会导入实现结果与工程设定； </li>
-<li>Example Project ： 打开案例工程。</li>
-</ul>
-<p>通常一般情况，我们选择RTL型工程进行创建，此处建议勾选“Do not specify sources at this time”，可以不在创建新工程向导中进行源文件导入；完成后继续点击NEXT；<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170216/205907994.png-960img" alt=""></p>
-<h3 id="选择目标器件"><a href="#选择目标器件" class="headerlink" title="选择目标器件"></a>选择目标器件</h3><p>通过筛选器来快速指定器件，或通过板卡”Boards”选型通过板卡来快速指定工程目标；<br>注意，”Boards”选项中默认仅有官方自有板卡可选，第三方或玩家们自制板卡可自定义板卡定义文件后存入Vivado指定目的，即可再此处快速选择；完成选型后，点击NEXT；<br>（关于如何自定义板卡定义文件，有兴趣的玩家们可以联系博主）<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170216/210742351.png-960img" alt=""></p>
-<h3 id="完成工程创建"><a href="#完成工程创建" class="headerlink" title="完成工程创建"></a>完成工程创建</h3><p>最终，确认工程创建信息，无误后，点击Finish完成工程创健。<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170216/211126669.png-960img" alt=""></p>
-<h2 id="Vivado界面预览"><a href="#Vivado界面预览" class="headerlink" title="Vivado界面预览"></a>Vivado界面预览</h2><p>在完成Vivado工程创建后，我们便会进入Vivado工具主界面啦。<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170216/211428992.png-960img" alt=""><br>此时，我们的工程的目录如下。<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170216/211535189.png-960img" alt=""><br>其中，Xpr文件即是我们的Vivado工程文件，玩家们后续便可双击或在Vivado中Open这一工程了。 </p>
 <hr>
 <h2 id=""><a href="#" class="headerlink" title=""></a>
 <div id="MySignature" style="display: block;">
@@ -528,7 +518,9 @@ mso-bidi-font-size:11.0pt;color:red"> 心 </span></u></b><span style="color:red"
       
         <div class="post-tags">
           
-            <a href="/tags/Vivado-Flow/" rel="tag"># Vivado Flow</a>
+            <a href="/tags/ZYNQ/" rel="tag"># ZYNQ</a>
+          
+            <a href="/tags/Koheron-SDK/" rel="tag"># Koheron SDK</a>
           
         </div>
       
@@ -537,8 +529,8 @@ mso-bidi-font-size:11.0pt;color:red"> 心 </span></u></b><span style="color:red"
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/15/vivadoflow-0/" rel="next" title="Vivado上手教程0-工作模式">
-                <i class="fa fa-chevron-left"></i> Vivado上手教程0-工作模式
+              <a href="/2017/12/08/koheronsdk-base4/" rel="next" title="Koheron SDK使用指南之镜像装载与硬件启动">
+                <i class="fa fa-chevron-left"></i> Koheron SDK使用指南之镜像装载与硬件启动
               </a>
             
           </div>
@@ -546,10 +538,6 @@ mso-bidi-font-size:11.0pt;color:red"> 心 </span></u></b><span style="color:red"
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/18/koheronsdk-base3/" rel="prev" title="Koheron SDK使用指南之项目编译log">
-                Koheron SDK使用指南之项目编译log <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -600,8 +588,8 @@ var jiathis_config={
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/02/16/vivadoflow-1/"
-           data-title="Vivado上手教程1-创建工程" data-url="http://fpgaplayer.com/2017/02/16/vivadoflow-1/">
+      <div class="ds-thread" data-thread-key="2017/12/08/koheronsdk-base7/"
+           data-title="Koheron SDK使用指南之Jupyter服务器" data-url="http://fpgaplayer.com/2017/12/08/koheronsdk-base7/">
       </div>
     
   </div>
@@ -743,7 +731,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Vivado创建工程"><span class="nav-number">1.</span> <span class="nav-text">Vivado创建工程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#按照上一节中所述，任选一种姿势打开Vivado"><span class="nav-number">1.1.</span> <span class="nav-text">按照上一节中所述，任选一种姿势打开Vivado</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建工程"><span class="nav-number">1.2.</span> <span class="nav-text">创建工程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#首先点击Quick-Start下的Create-New-Project"><span class="nav-number">1.2.1.</span> <span class="nav-text">首先点击Quick Start下的Create New Project</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#填写工程路径和工程名称"><span class="nav-number">1.2.2.</span> <span class="nav-text">填写工程路径和工程名称</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择工程类型"><span class="nav-number">1.2.3.</span> <span class="nav-text">选择工程类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择目标器件"><span class="nav-number">1.2.4.</span> <span class="nav-text">选择目标器件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完成工程创建"><span class="nav-number">1.2.5.</span> <span class="nav-text">完成工程创建</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vivado界面预览"><span class="nav-number">1.3.</span> <span class="nav-text">Vivado界面预览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">1.4.</span> <span class="nav-text">
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安装JUPYTER"><span class="nav-number">1.</span> <span class="nav-text">安装JUPYTER</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#运行Jupyter"><span class="nav-number">2.</span> <span class="nav-text">运行Jupyter</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置Jupyter服务器"><span class="nav-number">3.</span> <span class="nav-text">配置Jupyter服务器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#启动Jupyter服务"><span class="nav-number">4.</span> <span class="nav-text">启动Jupyter服务</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#远端浏览器登录Jupyter"><span class="nav-number">5.</span> <span class="nav-text">远端浏览器登录Jupyter</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PLAY"><span class="nav-number">6.</span> <span class="nav-text">PLAY</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#相关文章"><span class="nav-number">7.</span> <span class="nav-text">相关文章</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">7.1.</span> <span class="nav-text">
 
 
   

@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Vivado,Linux," />
+  <meta name="keywords" content="ZYNQ,Koheron SDK," />
 
 
 
@@ -84,19 +84,20 @@
 
 
 
-<meta name="description" content="Linux下，Vivado无法生成bit文件；Linux下，Vivado提示license，而同样license在Win系统下缺没问题；Linux下，Vivado License Manager (VLM) 提示 HostID为 “000000000000”；
-有没有遇到过这种情况的玩家呢？下面就解决这个问题。">
+<meta name="description" content="本文介绍Koheron SDK 开发环境编译得到的img镜像的装载；以及搭载有该镜像的ZYNQ平台的启动。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux系统Vivado license问题 HostID="000000000000"">
-<meta property="og:url" content="http://fpgaplayer.com/2017/02/06/linux-mac-0/index.html">
+<meta property="og:title" content="Koheron SDK使用指南之镜像装载与硬件启动">
+<meta property="og:url" content="http://fpgaplayer.com/2017/02/19/koheronsdk-base4/index.html">
 <meta property="og:site_name" content="FPGA Player">
-<meta property="og:description" content="Linux下，Vivado无法生成bit文件；Linux下，Vivado提示license，而同样license在Win系统下缺没问题；Linux下，Vivado License Manager (VLM) 提示 HostID为 “000000000000”；
-有没有遇到过这种情况的玩家呢？下面就解决这个问题。">
-<meta property="og:updated_time" content="2017-02-06T15:35:26.755Z">
+<meta property="og:description" content="本文介绍Koheron SDK 开发环境编译得到的img镜像的装载；以及搭载有该镜像的ZYNQ平台的启动。">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170219/120323594.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170219/120612984.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170219/120436767.png-960img">
+<meta property="og:updated_time" content="2017-02-19T06:06:18.489Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux系统Vivado license问题 HostID="000000000000"">
-<meta name="twitter:description" content="Linux下，Vivado无法生成bit文件；Linux下，Vivado提示license，而同样license在Win系统下缺没问题；Linux下，Vivado License Manager (VLM) 提示 HostID为 “000000000000”；
-有没有遇到过这种情况的玩家呢？下面就解决这个问题。">
+<meta name="twitter:title" content="Koheron SDK使用指南之镜像装载与硬件启动">
+<meta name="twitter:description" content="本文介绍Koheron SDK 开发环境编译得到的img镜像的装载；以及搭载有该镜像的ZYNQ平台的启动。">
+<meta name="twitter:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170219/120323594.png-960img">
 
 
 
@@ -124,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://fpgaplayer.com/2017/02/06/linux-mac-0/"/>
+  <link rel="canonical" href="http://fpgaplayer.com/2017/02/19/koheronsdk-base4/"/>
 
 
 
 
 
-  <title> Linux系统Vivado license问题 HostID="000000000000" | FPGA Player </title>
+  <title> Koheron SDK使用指南之镜像装载与硬件启动 | FPGA Player </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -293,7 +294,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://fpgaplayer.com/2017/02/06/linux-mac-0/">
+  <link itemprop="mainEntityOfPage" href="http://fpgaplayer.com/2017/02/19/koheronsdk-base4/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="FPGA玩家">
@@ -317,7 +318,7 @@
             
             
               
-                Linux系统Vivado license问题 HostID="000000000000"
+                Koheron SDK使用指南之镜像装载与硬件启动
               
             
           </h1>
@@ -332,8 +333,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-06T20:30:48+08:00">
-                2017-02-06
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-19T11:13:46+08:00">
+                2017-02-19
               </time>
             
 
@@ -355,8 +356,19 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工具/" itemprop="url" rel="index">
-                    <span itemprop="name">工具</span>
+                  <a href="/categories/教程/" itemprop="url" rel="index">
+                    <span itemprop="name">教程</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/教程/Koheron-SDK/" itemprop="url" rel="index">
+                    <span itemprop="name">Koheron SDK</span>
                   </a>
                 </span>
 
@@ -373,8 +385,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/02/06/linux-mac-0/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/06/linux-mac-0/" itemprop="commentCount"></span>
+                <a href="/2017/02/19/koheronsdk-base4/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/19/koheronsdk-base4/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -405,45 +417,22 @@
       
 
       
-        <p>Linux下，Vivado无法生成bit文件；<br>Linux下，Vivado提示license，而同样license在Win系统下缺没问题；<br>Linux下，Vivado License Manager (VLM) 提示 HostID为 “000000000000”；</p>
-<p>有没有遇到过这种情况的玩家呢？<br>下面就解决这个问题。</p>
+        <p>本文介绍Koheron SDK 开发环境编译得到的img镜像的装载；<br>以及搭载有该镜像的ZYNQ平台的启动。</p>
 <a id="more"></a>
-<h1 id="问题检查"><a href="#问题检查" class="headerlink" title="问题检查"></a>问题检查</h1><p>出现上述这个问题，一般是由于玩家所使用的Linux电脑或服务器中网卡名称采用了新的一致性命名方式biosdevname；</p>
-<h2 id="传统的网口名称eth0变成了类似下面这些名字"><a href="#传统的网口名称eth0变成了类似下面这些名字" class="headerlink" title="传统的网口名称eth0变成了类似下面这些名字"></a>传统的网口名称eth0变成了类似下面这些名字</h2><ul>
-<li>em1</li>
-<li>em2</li>
-<li>em3</li>
-<li>em4 </li>
-<li>lo </li>
-<li>p3p1 </li>
-<li>p3p1_0 </li>
-<li>p3p1_1 </li>
-<li>p3p2 </li>
-<li>p3p2_0 </li>
-<li>p3p2_1 </li>
-<li>p4p1</li>
-</ul>
-<p><strong>如果确实是这样情况的玩家，就可以继续往下看了。</strong></p>
-<h1 id="好好的eth，为啥要改名呢？"><a href="#好好的eth，为啥要改名呢？" class="headerlink" title="好好的eth，为啥要改名呢？"></a>好好的eth，为啥要改名呢？</h1><p>运行 Linux 的系统一贯将以太网设备命名为 ethX。桌面可能有一个命名为 eth0的以太网端口。如果仅有一个网络端口，这样毫无问题，但如果四个以太网端口该怎么办？<br>它们被命名为 eth0、eth1、eth2、eth3，分别对应机箱背面的标签 1、2、3、4。<br>某些时候确实如此。除了从 0 开始，而不是从 1 开始导致的明显命名混乱外，还可能出现其他混乱情况，如每个端口在每次启用时可能无法获得相同的名称，此外它们的命名顺序可能是任意的。如果将网卡添加到 PCI 插槽，情况还会更糟，主板上的端口和新添加卡上的端口命名可能相互混杂。</p>
-<h2 id="于是乎，DELL想了一招"><a href="#于是乎，DELL想了一招" class="headerlink" title="于是乎，DELL想了一招"></a>于是乎，DELL想了一招</h2><p>运行biosdevname，这是 Dell 开发的工具，旨在为网络设备的命名理清思路（并且保持一致性！）。Biosdevname 是一款 udev 帮助程序，可根据系统 BIOS 提供的信息对网络接口进行重命名。</p>
-<h2 id="新的命名规则如下"><a href="#新的命名规则如下" class="headerlink" title="新的命名规则如下"></a>新的命名规则如下</h2><p>em[1-N] 表示主板（嵌入式）NIC（# 对应机箱标签）<br>pci<slot>#<port> 表示 PCI 插槽中的卡，端口 1 至 N<br>NPAR &amp; SR-IOV 设备增加后缀 _<vf>，从 0 至 N，取决于各端口可用的分区或虚拟功能的数量。其他 Linux 命名规则，如 .<vlan> 和 :<alias> 后缀，保持不变且仍然适用。由此，Linux 网络接口名称与外部可见的网络端口（RJ-45 机架）之间建立了明确的对照。</alias></vlan></vf></port></slot></p>
-<h2 id="相关详情可参考"><a href="#相关详情可参考" class="headerlink" title="相关详情可参考"></a>相关详情可参考</h2><p><a href="http://linux.dell.com/files/whitepapers/consistent_network_device_naming_in_linux.pdf" title="Linux一致性网络设备命名规范白皮书" target="_blank" rel="external">“Linux一致性网络设备命名规范白皮书”</a></p>
-<h1 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h1><p>这些和咱们的问题有啥关系呢？<br>问题的关键来了：</p>
-<h2 id="赛灵思的License管理工具（VLM）是基于Flexlm工具是无法识别这些新名字的！"><a href="#赛灵思的License管理工具（VLM）是基于Flexlm工具是无法识别这些新名字的！" class="headerlink" title="赛灵思的License管理工具（VLM）是基于Flexlm工具是无法识别这些新名字的！"></a><strong>赛灵思的License管理工具（VLM）是基于Flexlm工具是无法识别这些新名字的！</strong></h2><h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>既然找到问题原因了，那就可以找办法解决了。<br>既然不识别新的一致性网络设备名称，那咱就给他改回去呗。</p>
-<ul>
-<li>cd /etc/default</li>
-<li>sudo vi grub</li>
-<li>在GRUB_CMDLINE_LINUX中添加: “net.ifnames=0 biosdevname=0”</li>
-<li>保存退出：<esc>:wq</esc></li>
-<li>grub2-mkconfig -o /boot/grub2/grub.cfg</li>
-<li>cd /etc/sysconfig/network-scripts</li>
-<li>sudo mv ifcfg-enp0s3 ifcfg-eth0</li>
-<li>sudo vi ifcfg-eth0</li>
-<li>将 enp0s3（或类似的biosdevname新名字）改为 eth0</li>
-<li>保存退出：<esc>:wq</esc></li>
-<li>重启后生效</li>
-</ul>
-<p>生效后重新运行Vivado，应该就不会遇到之前的问题啦！</p>
+<h1 id="镜像装载"><a href="#镜像装载" class="headerlink" title="镜像装载"></a>镜像装载</h1><h2 id="安装-Win32DiskImager工具"><a href="#安装-Win32DiskImager工具" class="headerlink" title="安装 Win32DiskImager工具"></a>安装 Win32DiskImager工具</h2><p>Win32DiskImager 是Windows下进行img镜像读写的工具。<br>我们可以使用Win32DiskImager来将img镜像装载进SD卡中。</p>
+<p>1.1. 下载 Win32DiskImager<br>1.2. 在 administrator下安装Win32DiskImager. </p>
+<h2 id="镜像装载-1"><a href="#镜像装载-1" class="headerlink" title="镜像装载"></a>镜像装载</h2><p>2.1. 插入  SD card 并运行 Win32DiskImager（管理员模式下）<br>2.2. 指定 os.img 路径并选择SD卡盘符<br><strong>一定不能选错，否则硬盘会被格式化</strong><br>2.3. 点击 Write进行写入<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170219/120323594.png-960img" alt=""></p>
+<h1 id="首次登陆Linux系统"><a href="#首次登陆Linux系统" class="headerlink" title="首次登陆Linux系统"></a>首次登陆Linux系统</h1><p>登录用户：root 密码： changeme </p>
+<h2 id="使用Putty进行远程接入"><a href="#使用Putty进行远程接入" class="headerlink" title="使用Putty进行远程接入"></a>使用Putty进行远程接入</h2><p><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170219/120612984.png-960img" alt=""></p>
+<h2 id="更改默认IP设置"><a href="#更改默认IP设置" class="headerlink" title="更改默认IP设置"></a>更改默认IP设置</h2><p>编辑配置文件，更改ZYNQ系统默认IP设置<br>连接路由器应选择DHCP自动获取IP<br>直连PC可设置静态IP<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">vi /etc/network/interfaces </div><div class="line"></div><div class="line"># DHCP configuration</div><div class="line"># iface eth0 inet dhcp</div><div class="line"></div><div class="line"># Static IP</div><div class="line">iface eth0 inet static</div><div class="line">address 10.42.0.100 # Red Pitaya IP address</div><div class="line">gateway 10.42.0.1</div><div class="line">netmask 255.255.255.0</div><div class="line">network 10.42.0.0</div><div class="line">broadcast 10.42.0.255</div></pre></td></tr></table></figure></p>
+<h1 id="使用FileZilla进行文件传输"><a href="#使用FileZilla进行文件传输" class="headerlink" title="使用FileZilla进行文件传输"></a>使用FileZilla进行文件传输</h1><p><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170219/120436767.png-960img" alt=""></p>
+<h2 id="FileZilla-实现ZYNQ-Linux系统与主机的文件共享"><a href="#FileZilla-实现ZYNQ-Linux系统与主机的文件共享" class="headerlink" title="FileZilla 实现ZYNQ Linux系统与主机的文件共享"></a>FileZilla 实现ZYNQ Linux系统与主机的文件共享</h2><h3 id="打开FileZilla-客户端，点击【文件】-gt-【站点管理器】-gt-【添加新站点】"><a href="#打开FileZilla-客户端，点击【文件】-gt-【站点管理器】-gt-【添加新站点】" class="headerlink" title="打开FileZilla 客户端，点击【文件】-&gt;【站点管理器】-&gt;【添加新站点】"></a>打开FileZilla 客户端，点击【文件】-&gt;【站点管理器】-&gt;【添加新站点】</h3><h3 id="设置【通用】选项卡："><a href="#设置【通用】选项卡：" class="headerlink" title="设置【通用】选项卡："></a>设置【通用】选项卡：</h3><p>（1）主机：虚拟机IP 地址<br>（2）协议SFTP/端口22（端⼝不提供保存，在连接时输入即可）<br>（3）登录类型：一般<br>（4）用户名/密码：虚拟机中登录Ubantu 的账户和密码</p>
+<h3 id="每次输入端口号进⾏链接，结果出现如下信息，需检查虚拟机中的SSH-服务是否安装"><a href="#每次输入端口号进⾏链接，结果出现如下信息，需检查虚拟机中的SSH-服务是否安装" class="headerlink" title="每次输入端口号进⾏链接，结果出现如下信息，需检查虚拟机中的SSH 服务是否安装"></a>每次输入端口号进⾏链接，结果出现如下信息，需检查虚拟机中的SSH 服务是否安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">错误：Network error:Connection refused</div><div class="line">错误：无法连接到服务器</div></pre></td></tr></table></figure>
+<p>###　安装ssh server<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install openssh-server</div></pre></td></tr></table></figure></p>
+<h3 id="启动SSH"><a href="#启动SSH" class="headerlink" title="启动SSH"></a>启动SSH</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo /etc/init.d/ssh start</div></pre></td></tr></table></figure>
+<h2 id="安装完成，通过拖拽把本地文件传到ZYNQ系统啦"><a href="#安装完成，通过拖拽把本地文件传到ZYNQ系统啦" class="headerlink" title="安装完成，通过拖拽把本地文件传到ZYNQ系统啦"></a>安装完成，通过拖拽把本地文件传到ZYNQ系统啦</h2><h1 id="Koheron-SDK相关介绍，开发流程，教程请参加相关博文。"><a href="#Koheron-SDK相关介绍，开发流程，教程请参加相关博文。" class="headerlink" title="Koheron SDK相关介绍，开发流程，教程请参加相关博文。"></a>Koheron SDK相关介绍，开发流程，教程请参加相关博文。</h1><h1 id="相关文章"><a href="#相关文章" class="headerlink" title="相关文章"></a>相关文章</h1><ol>
+<li>Koheron SDK系列教程 <a href="http://blog.fpgaplayer.com/categories/%E6%95%99%E7%A8%8B/Koheron-SDK/" target="_blank" rel="external">点击此处</a></li>
+</ol>
 <hr>
 <h2 id=""><a href="#" class="headerlink" title=""></a>
 <div id="MySignature" style="display: block;">
@@ -521,9 +510,9 @@ mso-bidi-font-size:11.0pt;color:red"> 心 </span></u></b><span style="color:red"
       
         <div class="post-tags">
           
-            <a href="/tags/Vivado/" rel="tag"># Vivado</a>
+            <a href="/tags/ZYNQ/" rel="tag"># ZYNQ</a>
           
-            <a href="/tags/Linux/" rel="tag"># Linux</a>
+            <a href="/tags/Koheron-SDK/" rel="tag"># Koheron SDK</a>
           
         </div>
       
@@ -532,8 +521,8 @@ mso-bidi-font-size:11.0pt;color:red"> 心 </span></u></b><span style="color:red"
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/06/vivadobase-1/" rel="next" title="在Windows下使用ISE">
-                <i class="fa fa-chevron-left"></i> 在Windows下使用ISE
+              <a href="/2017/02/19/koheronsdk-base5/" rel="next" title="Koheron SDK使用指南之镜像装载与硬件启动">
+                <i class="fa fa-chevron-left"></i> Koheron SDK使用指南之镜像装载与硬件启动
               </a>
             
           </div>
@@ -542,8 +531,8 @@ mso-bidi-font-size:11.0pt;color:red"> 心 </span></u></b><span style="color:red"
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/02/06/ultrafast-0/" rel="prev" title="UltraFast设计方法学之初窥门径">
-                UltraFast设计方法学之初窥门径 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/02/19/koheronsdk-base6/" rel="prev" title="Koheron SDK使用指南之http接入ZYNQ服务器">
+                Koheron SDK使用指南之http接入ZYNQ服务器 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -595,8 +584,8 @@ var jiathis_config={
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/02/06/linux-mac-0/"
-           data-title="Linux系统Vivado license问题 HostID="000000000000"" data-url="http://fpgaplayer.com/2017/02/06/linux-mac-0/">
+      <div class="ds-thread" data-thread-key="2017/02/19/koheronsdk-base4/"
+           data-title="Koheron SDK使用指南之镜像装载与硬件启动" data-url="http://fpgaplayer.com/2017/02/19/koheronsdk-base4/">
       </div>
     
   </div>
@@ -738,7 +727,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#问题检查"><span class="nav-number">1.</span> <span class="nav-text">问题检查</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#传统的网口名称eth0变成了类似下面这些名字"><span class="nav-number">1.1.</span> <span class="nav-text">传统的网口名称eth0变成了类似下面这些名字</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#好好的eth，为啥要改名呢？"><span class="nav-number">2.</span> <span class="nav-text">好好的eth，为啥要改名呢？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#于是乎，DELL想了一招"><span class="nav-number">2.1.</span> <span class="nav-text">于是乎，DELL想了一招</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新的命名规则如下"><span class="nav-number">2.2.</span> <span class="nav-text">新的命名规则如下</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关详情可参考"><span class="nav-number">2.3.</span> <span class="nav-text">相关详情可参考</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#问题原因"><span class="nav-number">3.</span> <span class="nav-text">问题原因</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#赛灵思的License管理工具（VLM）是基于Flexlm工具是无法识别这些新名字的！"><span class="nav-number">3.1.</span> <span class="nav-text">赛灵思的License管理工具（VLM）是基于Flexlm工具是无法识别这些新名字的！</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解决方案"><span class="nav-number">4.</span> <span class="nav-text">解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">4.1.</span> <span class="nav-text">
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#镜像装载"><span class="nav-number">1.</span> <span class="nav-text">镜像装载</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-Win32DiskImager工具"><span class="nav-number">1.1.</span> <span class="nav-text">安装 Win32DiskImager工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#镜像装载-1"><span class="nav-number">1.2.</span> <span class="nav-text">镜像装载</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#首次登陆Linux系统"><span class="nav-number">2.</span> <span class="nav-text">首次登陆Linux系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Putty进行远程接入"><span class="nav-number">2.1.</span> <span class="nav-text">使用Putty进行远程接入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更改默认IP设置"><span class="nav-number">2.2.</span> <span class="nav-text">更改默认IP设置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用FileZilla进行文件传输"><span class="nav-number">3.</span> <span class="nav-text">使用FileZilla进行文件传输</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#FileZilla-实现ZYNQ-Linux系统与主机的文件共享"><span class="nav-number">3.1.</span> <span class="nav-text">FileZilla 实现ZYNQ Linux系统与主机的文件共享</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#打开FileZilla-客户端，点击【文件】-gt-【站点管理器】-gt-【添加新站点】"><span class="nav-number">3.1.1.</span> <span class="nav-text">打开FileZilla 客户端，点击【文件】->【站点管理器】->【添加新站点】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置【通用】选项卡："><span class="nav-number">3.1.2.</span> <span class="nav-text">设置【通用】选项卡：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#每次输入端口号进⾏链接，结果出现如下信息，需检查虚拟机中的SSH-服务是否安装"><span class="nav-number">3.1.3.</span> <span class="nav-text">每次输入端口号进⾏链接，结果出现如下信息，需检查虚拟机中的SSH 服务是否安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动SSH"><span class="nav-number">3.1.4.</span> <span class="nav-text">启动SSH</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装完成，通过拖拽把本地文件传到ZYNQ系统啦"><span class="nav-number">3.2.</span> <span class="nav-text">安装完成，通过拖拽把本地文件传到ZYNQ系统啦</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Koheron-SDK相关介绍，开发流程，教程请参加相关博文。"><span class="nav-number">4.</span> <span class="nav-text">Koheron SDK相关介绍，开发流程，教程请参加相关博文。</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#相关文章"><span class="nav-number">5.</span> <span class="nav-text">相关文章</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">5.1.</span> <span class="nav-text">
 
 
   

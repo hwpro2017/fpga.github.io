@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://fpgaplayer.com/2017/02/18/koheronsdk-base3/index.html">
 <meta property="og:site_name" content="FPGA Player">
 <meta property="og:description" content="本文列出Koheron SDK 开发环境下编译adc_dac时的log记录，以及简单分析。">
-<meta property="og:updated_time" content="2017-02-18T05:26:58.401Z">
+<meta property="og:updated_time" content="2017-02-19T06:06:18.483Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Koheron SDK使用指南之项目编译log">
 <meta name="twitter:description" content="本文列出Koheron SDK 开发环境下编译adc_dac时的log记录，以及简单分析。">
@@ -432,11 +432,7 @@
 <h1 id="生成上传文件包"><a href="#生成上传文件包" class="headerlink" title="生成上传文件包"></a>生成上传文件包</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">python scripts/make.py --start_sh instruments/adc_dac</div><div class="line">[tmp/adc_dac.start.sh] OK</div><div class="line">python scripts/make.py --live_zip instruments/adc_dac 0.13.1 https://s3.eu-central-1.amazonaws.com/koheron-sdk</div><div class="line">[tmp/adc_dac.live] OK</div><div class="line">zip --junk-paths tmp/adc_dac-d2deb66.zip tmp/adc_dac.bit tmp/adc_dac.live tmp/adc_dac.server.build/kserverd tmp/adc_dac.start.sh tmp/adc_dac.live/*</div><div class="line">  adding: adc_dac.bit (deflated 92%)</div><div class="line">  adding: kserverd (deflated 61%)</div><div class="line">  adding: adc_dac.start.sh (deflated 46%)</div><div class="line">  adding: default.js (deflated 72%)</div><div class="line">  adding: index.html (deflated 63%)</div><div class="line">[tmp/adc_dac-d2deb66.zip] OK</div></pre></td></tr></table></figure>
 <h1 id="退出"><a href="#退出" class="headerlink" title="退出"></a>退出</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">root@ubuntu1604-virtual-machine:/home/ubuntu1604/Downloads/koheron-sdk#</div></pre></td></tr></table></figure>
 <p>##<br>Koheron SDK相关介绍，开发流程，教程请参加相关博文。</p>
-<h1 id="相关文章"><a href="#相关文章" class="headerlink" title="相关文章"></a>相关文章</h1><ol>
-<li>Koheron SDK介绍 <a href="http://blog.fpgaplayer.com/" target="_blank" rel="external">点击此处</a></li>
-</ol>
-<hr>
-<h2 id=""><a href="#" class="headerlink" title=""></a>
+<h1 id="相关文章"><a href="#相关文章" class="headerlink" title="相关文章"></a>相关文章</h1><h2 id="1-Koheron-SDK系列教程-点击此处"><a href="#1-Koheron-SDK系列教程-点击此处" class="headerlink" title="1. Koheron SDK系列教程 点击此处"></a>1. Koheron SDK系列教程 <a href="http://blog.fpgaplayer.com/categories/%E6%95%99%E7%A8%8B/Koheron-SDK/" target="_blank" rel="external">点击此处</a></h2><h2 id=""><a href="#" class="headerlink" title=""></a>
 <div id="MySignature" style="display: block;">
 
 <p id="PSignature" style="border-top: #e0e0e0 1px dashed; border-right: #e0e0e0 1px dashed; border-bottom: #e0e0e0 1px dashed; border-left: #e0e0e0 1px dashed;            padding-top: 10px;padding-right: 10px;padding-bottom: 10px;padding-left: 110px;            background: url(https://i.creativecommons.org/l/by/4.0/88x31.png) #e5f1f4 no-repeat 1% 50%;            font-family: 微软雅黑; font-size:11px;">  
@@ -523,8 +519,8 @@ mso-bidi-font-size:11.0pt;color:red"> 心 </span></u></b><span style="color:red"
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/16/vivadoflow-1/" rel="next" title="Vivado上手教程1-创建工程">
-                <i class="fa fa-chevron-left"></i> Vivado上手教程1-创建工程
+              <a href="/2017/02/18/koheronsdk-base1/" rel="next" title="Koheron SDK使用指南之开发环境搭建">
+                <i class="fa fa-chevron-left"></i> Koheron SDK使用指南之开发环境搭建
               </a>
             
           </div>
@@ -533,8 +529,8 @@ mso-bidi-font-size:11.0pt;color:red"> 心 </span></u></b><span style="color:red"
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/12/08/koheronsdk-base1/" rel="prev" title="Koheron SDK使用指南之开发环境搭建">
-                Koheron SDK使用指南之开发环境搭建 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/02/18/koheronsdk-base2/" rel="prev" title="Koheron SDK使用指南之镜像装载与硬件启动">
+                Koheron SDK使用指南之镜像装载与硬件启动 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -729,7 +725,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#进入Koheron-SDK"><span class="nav-number">1.</span> <span class="nav-text">进入Koheron SDK</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SOURCE-配置文件"><span class="nav-number">2.</span> <span class="nav-text">SOURCE 配置文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编译工程ADC-DCA"><span class="nav-number">3.</span> <span class="nav-text">编译工程ADC_DCA</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#获取Koheron-Server"><span class="nav-number">3.1.</span> <span class="nav-text">获取Koheron-Server</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动PYTHON"><span class="nav-number">3.2.</span> <span class="nav-text">启动PYTHON</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动Vivado编译IP-axi-cfg-register-v1-0"><span class="nav-number">3.3.</span> <span class="nav-text">启动Vivado编译IP axi_cfg_register_v1_0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动Vivado编译IP-axi-sts-register-v1-0"><span class="nav-number">3.4.</span> <span class="nav-text">启动Vivado编译IP  axi_sts_register_v1_0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动Vivado编译IP-dna-reader-v1-0"><span class="nav-number">3.5.</span> <span class="nav-text">启动Vivado编译IP dna_reader_v1_0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动Vivado编译IP-redp-dac-v1-0"><span class="nav-number">3.6.</span> <span class="nav-text">启动Vivado编译IP redp_dac_v1_0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动Vivado编译IP-redp-adc-v1-0"><span class="nav-number">3.7.</span> <span class="nav-text">启动Vivado编译IP redp_adc_v1_0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建Vivado整体工程"><span class="nav-number">3.8.</span> <span class="nav-text">搭建Vivado整体工程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译工程文件-综合-实现-生成bit"><span class="nav-number">3.9.</span> <span class="nav-text">编译工程文件-综合-实现-生成bit</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#生成上传文件包"><span class="nav-number">4.</span> <span class="nav-text">生成上传文件包</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#退出"><span class="nav-number">5.</span> <span class="nav-text">退出</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#相关文章"><span class="nav-number">6.</span> <span class="nav-text">相关文章</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">6.1.</span> <span class="nav-text">
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#进入Koheron-SDK"><span class="nav-number">1.</span> <span class="nav-text">进入Koheron SDK</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SOURCE-配置文件"><span class="nav-number">2.</span> <span class="nav-text">SOURCE 配置文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编译工程ADC-DCA"><span class="nav-number">3.</span> <span class="nav-text">编译工程ADC_DCA</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#获取Koheron-Server"><span class="nav-number">3.1.</span> <span class="nav-text">获取Koheron-Server</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动PYTHON"><span class="nav-number">3.2.</span> <span class="nav-text">启动PYTHON</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动Vivado编译IP-axi-cfg-register-v1-0"><span class="nav-number">3.3.</span> <span class="nav-text">启动Vivado编译IP axi_cfg_register_v1_0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动Vivado编译IP-axi-sts-register-v1-0"><span class="nav-number">3.4.</span> <span class="nav-text">启动Vivado编译IP  axi_sts_register_v1_0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动Vivado编译IP-dna-reader-v1-0"><span class="nav-number">3.5.</span> <span class="nav-text">启动Vivado编译IP dna_reader_v1_0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动Vivado编译IP-redp-dac-v1-0"><span class="nav-number">3.6.</span> <span class="nav-text">启动Vivado编译IP redp_dac_v1_0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动Vivado编译IP-redp-adc-v1-0"><span class="nav-number">3.7.</span> <span class="nav-text">启动Vivado编译IP redp_adc_v1_0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建Vivado整体工程"><span class="nav-number">3.8.</span> <span class="nav-text">搭建Vivado整体工程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译工程文件-综合-实现-生成bit"><span class="nav-number">3.9.</span> <span class="nav-text">编译工程文件-综合-实现-生成bit</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#生成上传文件包"><span class="nav-number">4.</span> <span class="nav-text">生成上传文件包</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#退出"><span class="nav-number">5.</span> <span class="nav-text">退出</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#相关文章"><span class="nav-number">6.</span> <span class="nav-text">相关文章</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Koheron-SDK系列教程-点击此处"><span class="nav-number">6.1.</span> <span class="nav-text">1. Koheron SDK系列教程 点击此处</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">6.2.</span> <span class="nav-text">
 
 
   

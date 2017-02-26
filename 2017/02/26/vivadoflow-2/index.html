@@ -1,0 +1,1089 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Vivado Flow,ZYNQ Flow,ZYPI," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="本文是ZYPI平台上的第二个实验。本实验提供预先编写好的Verilog源代码。 实验中将使用Vivado进行Verilog设计仿真来测试模块功能并进行Verilog设计Debug；随后进行设计的综合以及实现，最终生成Bitstream，并将其下载到ZYPI板卡并验证硬件中的功能。 通过观察板卡现象，你会注意到这个设计的功能和Lab1的行为是相同的。也就是说软件中实现的相同功能可以在硬件中实现（在硬">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vivado上手教程2-基本硬件设计流程">
+<meta property="og:url" content="http://fpgaplayer.com/2017/02/26/vivadoflow-2/index.html">
+<meta property="og:site_name" content="FPGA Player">
+<meta property="og:description" content="本文是ZYPI平台上的第二个实验。本实验提供预先编写好的Verilog源代码。 实验中将使用Vivado进行Verilog设计仿真来测试模块功能并进行Verilog设计Debug；随后进行设计的综合以及实现，最终生成Bitstream，并将其下载到ZYPI板卡并验证硬件中的功能。 通过观察板卡现象，你会注意到这个设计的功能和Lab1的行为是相同的。也就是说软件中实现的相同功能可以在硬件中实现（在硬">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/101541287.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/101548573.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/101604471.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/101641402.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/101658920.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/101704249.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/101707465.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/101719202.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/101740375.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/101749120.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/101759136.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/101803564.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/101812517.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/101857237.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/101907856.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/101912138.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/101920017.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/101934391.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/102107574.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/102118547.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/102122822.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/102130414.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/102142309.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/102207370.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/102218141.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/102235789.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/102310704.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/102319671.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/102345587.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/102401331.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/102406386.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/102517561.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/102528319.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/102733457.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/102545987.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/102554529.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/102603682.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/102832254.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/103008818.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/103020905.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/103032847.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/103046607.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/103115654.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/103159575.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/103213530.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/103224696.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/103243345.png-960img">
+<meta property="og:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/103256634.png-960img">
+<meta property="og:updated_time" content="2017-02-26T02:41:42.942Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vivado上手教程2-基本硬件设计流程">
+<meta name="twitter:description" content="本文是ZYPI平台上的第二个实验。本实验提供预先编写好的Verilog源代码。 实验中将使用Vivado进行Verilog设计仿真来测试模块功能并进行Verilog设计Debug；随后进行设计的综合以及实现，最终生成Bitstream，并将其下载到ZYPI板卡并验证硬件中的功能。 通过观察板卡现象，你会注意到这个设计的功能和Lab1的行为是相同的。也就是说软件中实现的相同功能可以在硬件中实现（在硬">
+<meta name="twitter:image" content="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/101541287.png-960img">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"right","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6382401141535147000',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://fpgaplayer.com/2017/02/26/vivadoflow-2/"/>
+
+
+
+
+
+  <title> Vivado上手教程2-基本硬件设计流程 | FPGA Player </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?cdb421e732ebb368c5643d00163fc965";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">FPGA Player</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">Beginner's Mind</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-share">
+          <a href="/share" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            平台分享
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://fpgaplayer.com/2017/02/26/vivadoflow-2/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="FPGA玩家">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="FPGA Player">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="FPGA Player" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Vivado上手教程2-基本硬件设计流程
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-26T17:48:48+08:00">
+                2017-02-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/教程/" itemprop="url" rel="index">
+                    <span itemprop="name">教程</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/教程/ZYNQ/" itemprop="url" rel="index">
+                    <span itemprop="name">ZYNQ</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/02/26/vivadoflow-2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/26/vivadoflow-2/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本文是ZYPI平台上的第二个实验。<br>本实验提供预先编写好的Verilog源代码。 实验中将使用Vivado进行Verilog设计仿真来测试模块功能并进行Verilog设计Debug；随后进行设计的综合以及实现，最终生成Bitstream，并将其下载到ZYPI板卡并验证硬件中的功能。 通过观察板卡现象，你会注意到这个设计的功能和Lab1的行为是相同的。也就是说软件中实现的相同功能可以在硬件中实现（在硬件中实现起来相对更复杂，但是有时这样做可以实质性的改进系统性能，我们会在后续继续讨论）。</p>
+<a id="more"></a>
+<h1 id="实验介绍"><a href="#实验介绍" class="headerlink" title="实验介绍"></a>实验介绍</h1><p>在上一个实验中（ZYPI第一个实验，<a href="http://？" target="_blank" rel="external">请点这里</a>），我们使用了Zynq芯片的PS和PL侧。在ARM处理器上运行了一个软件来实现一个二进制计数器。在本实验中将实现相同功能的计数器，但使用完全不同的方法。 在本实验中，我们将只使用芯片的PL端。仅由硬件电路实现完全相同的功能。 使用Verilog HDL（硬件描述语言）描述硬件，通过Vivado综合器将Verilog文件转换为电路网表。 本实验将为用户提供一个良好的硬件设计流程启动指南，其中包括许多步骤：设计，仿真和验证以及实现等部分。</p>
+<p>本实验中的设计方法是硬件工程师通常遵循的一个简化的实现硬件电路或IP的方法。 我们在上一个实验中使用的IP核也是以类似的方式实现，同样是由开发人员编写的Verilog HDL（或其他HDL）文件，并且封装成的即插即用IP核。</p>
+<h1 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h1><ol>
+<li>使用Vivado创建一个针对ZYPI平台的简单硬件HDL设计。</li>
+<li>检查Vivado项目目录结构，并熟悉Vivado创建的目录以存储导入的源代码，新代码，报告和设计输出等相关文件。</li>
+<li>对设计进行RTL分析，分析由Vivado为HDL设计生成的原理图。</li>
+<li>在综合后和实现后中对设计进行硬件利用率分析。硬件利用率提供了在芯片内使用多少硬件资源的百分比以及相关详细报告。</li>
+<li>介绍Vivado仿真器，执行行为仿真，编写Verilog测试台并且进行波形结果分析。</li>
+</ol>
+<h2 id="新建工程"><a href="#新建工程" class="headerlink" title="新建工程"></a>新建工程</h2><p>按照之前的博文说明（<a href="http://blog.fpgaplayer.com/2017/02/16/vivadoflow-1/" target="_blank" rel="external">点击这里查看</a>），创建一个新的ZYPI工程。<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/101541287.png-960img" alt="mark"><br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/101548573.png-960img" alt="mark"></p>
+<h2 id="添加源文件"><a href="#添加源文件" class="headerlink" title="添加源文件"></a>添加源文件</h2><p>在左侧Project Manager中选择Add Sources打开添加源文件窗口。<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/101604471.png-960img" alt="mark"></p>
+<p>添加源文件窗口界面提供了如下几个选项：</p>
+<ol>
+<li>Add or Create Constraints（添加或者创建约束）；</li>
+<li>Add or Create Design Sources（添加或者创建设计源文件）；</li>
+<li>Add or Create Simulation Sources（添加或者创建仿真文件）；</li>
+<li>Add or Create DSP Sources（添加或者创建DSP源文件）；</li>
+<li>Add Existing Block Design Sources（添加已存在的块设计源文件）；</li>
+<li>Add Existing IP（添加已存在的IP）。</li>
+</ol>
+<p><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/101641402.png-960img" alt="mark"></p>
+<p>在添加源文件窗口中，单击绿色+符号，然后选择添加文件。按住Ctrl键选择Lab2.v，Freq_div.v，Direction_ctrl.v三个文件。这些文件为Lab2的硬件设计源文件。在“ 添加源文件 ”窗口中选中“ Copy Sources into project ”，确保源文件被复制进当前工程路径下。<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/101658920.png-960img" alt="mark"><br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/101704249.png-960img" alt="mark"><br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/101707465.png-960img" alt="mark"><br>完成源文件添加后，在Source窗口中可以看到刚才添加进来的源文件。<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/101719202.png-960img" alt="mark"></p>
+<h2 id="添加约束文件"><a href="#添加约束文件" class="headerlink" title="添加约束文件"></a>添加约束文件</h2><p>通常，一个设计中的FPGA不会是独立使用的，FPGA一定会与其他外设、接口相连接，并且FPGA通常需要有外部时钟的接入。因此，FPGA设计需要在工具中指定对应的IO引脚位置以及输入时钟的信息，即需要用户对IO进行约束以及进行时钟周期等时序约束。在Vivado中，用户可通过I/O Planner进行IO约束，使用Timing Constraints Manager指定期望设计性能即进行设计的时序约束。</p>
+<p><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/101740375.png-960img" alt="mark"><br>与添加设计源文件类似，通过相同的方式选择xdc文件添加进工程中。<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/101749120.png-960img" alt="mark"><br>在本实验中，约束文件的作用是为设计顶层的输入输出引脚进行了位置约束。<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/101759136.png-960img" alt="mark"><br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/101803564.png-960img" alt="mark"><br>完成约束文件的添加后，在Source窗口中可以看到对应的约束文件。<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/101812517.png-960img" alt="mark"></p>
+<h2 id="RTL分析"><a href="#RTL分析" class="headerlink" title="RTL分析"></a>RTL分析</h2><p>Vivado工具提供对HDL源文件的RTL分析功能，通过RTL分析用户可以看到与源文件等效的RTL原理图，并在此基础上进行一些设计分析。<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/101857237.png-960img" alt="mark"><br>点击Open Elaborated Design来打开RTL分析结果，左侧会出现Vivado分析后的RTL原理图。<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/101907856.png-960img" alt="mark"><br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/101912138.png-960img" alt="mark"><br>RTL分析后的原理图，原理图会和源文件的模块名称信号名称以及层级关系保持一致。<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/101920017.png-960img" alt="mark"><br>在展开模块后，可以看到整个设计的RTL原理图。该原理图是依据HDL描述生成的，根据该原理图可以查看设计是否达到要求并加以修改。在Vivado的设计过程中，用户可以在RTL分析、综合、实现阶段后打开设计原理图或设计网表来进行观察。在RTL描述与分析阶段后的原理图网表是由与FPGA底层部件无关的逻辑符号来体现的。可在后续过程中看到综合阶段后的原理图，在综合阶段后的原理图中的逻辑原件便是由FPGA中的底层部件来构建的了。<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/101934391.png-960img" alt="mark"></p>
+<h2 id="设计仿真"><a href="#设计仿真" class="headerlink" title="设计仿真"></a>设计仿真</h2><p>RTL Analysis能够非常方便的用于检查一些语法和逻辑错误，但是设计是否完全满足功能需求还需要通过仿真来验证。如果直接在FPGA芯片上测试，可能因为需要多次综合、实现而浪费大量时间，同时很难观察一些内部信号。而使用功能仿真则可以很快的测试出功能是否满足要求，并且避免多次综合、实现的过程。</p>
+<h3 id="Vivado工具集成的仿真工具功能十分强大，提供诸多功能"><a href="#Vivado工具集成的仿真工具功能十分强大，提供诸多功能" class="headerlink" title="Vivado工具集成的仿真工具功能十分强大，提供诸多功能"></a>Vivado工具集成的仿真工具功能十分强大，提供诸多功能</h3><ol>
+<li>图形化波形显示窗口；</li>
+<li>可通过工具栏按钮添加标尺、测量延时以及波形缩放；</li>
+<li>总线信号可展开观察单根信号线；</li>
+<li>可任意插入分隔线用于分隔相关信号组；</li>
+<li>控制台窗口可打印testbench中的输出信息；</li>
+<li>默认自动添加顶层信号的波形显示。</li>
+</ol>
+<h3 id="再次添加源文件，这次选择添加仿真激励文件TestBench"><a href="#再次添加源文件，这次选择添加仿真激励文件TestBench" class="headerlink" title="再次添加源文件，这次选择添加仿真激励文件TestBench"></a>再次添加源文件，这次选择添加仿真激励文件TestBench</h3><p>TestBench是指一个虚拟的针对待测设计的验证环境。TestBench用于向待测设计(Design Under Test)提供激励，通常也是HDL形式的文件。用户也可以在TestBench中实现对测试结果的自动检测。通常，一个TestBench测试激励文件中可能具有如下部分：</p>
+<ol>
+<li>内部信号</li>
+<li>待测设计的例化</li>
+<li>时钟等输入激励信号</li>
+<li>输出监视，结果比对</li>
+<li>板级部件的仿真模型（如存储器等）</li>
+</ol>
+<p><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/102107574.png-960img" alt="mark"><br>将设计目录下的仿真激励文件添加至工程中。<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/102118547.png-960img" alt="mark"><br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/102122822.png-960img" alt="mark"><br>添加完成后，可以在Source窗口中看到设计激励，并且可以看到激励文件在设计顶层之上。<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/102130414.png-960img" alt="mark"><br>双击打开激励文件，可以看到在激励文件中完成了对设计顶层的例化以及相关激励信号的生成。<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/102142309.png-960img" alt="mark"></p>
+<h3 id="进行设计仿真"><a href="#进行设计仿真" class="headerlink" title="进行设计仿真"></a>进行设计仿真</h3><p><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/102207370.png-960img" alt="mark"></p>
+<h3 id="仿真设置"><a href="#仿真设置" class="headerlink" title="仿真设置"></a>仿真设置</h3><p><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/102218141.png-960img" alt="mark"><br>在做Vivado的仿真工作之前可以对Vivado工程设置中的一些和仿真相关的设置做一些基本了解。其中相应设置以及选项如下。<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/102235789.png-960img" alt="mark"></p>
+<ol>
+<li>选择目标仿真器</li>
+<li>选择仿真语言</li>
+<li>选择仿真集</li>
+<li>指定仿真工程顶层文件</li>
+<li>重新运行仿真前清空仿真文件（建议选中）</li>
+<li>仿真设置选项卡</li>
+<li>Verilog包含路径（Compilation选项卡）</li>
+<li>generics/parameters位置（Compilation选项卡）</li>
+<li>设置描述区域</li>
+<li>帮助按钮</li>
+</ol>
+<h3 id="行为仿真"><a href="#行为仿真" class="headerlink" title="行为仿真"></a>行为仿真</h3><p>进行行为仿真。<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/102310704.png-960img" alt="mark"></p>
+<h3 id="仿真界面"><a href="#仿真界面" class="headerlink" title="仿真界面"></a>仿真界面</h3><p><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/102319671.png-960img" alt="mark"></p>
+<h2 id="设计编译：设计综合与设计实现"><a href="#设计编译：设计综合与设计实现" class="headerlink" title="设计编译：设计综合与设计实现"></a>设计编译：设计综合与设计实现</h2><h3 id="设计综合"><a href="#设计综合" class="headerlink" title="设计综合"></a>设计综合</h3><p>FPGA是基于查找表结构的，在FPGA中任何数字电路都是由查找表和寄存器等FPGA底层基本单元组成。设计综合的过程就是由FPGA综合工具将HDL、原理图或其他形式的源文件进行分析、推演出由FPGA芯片中底层基本单元表示的电路网表的过程。</p>
+<p><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/102345587.png-960img" alt="mark"></p>
+<h3 id="综合选项"><a href="#综合选项" class="headerlink" title="综合选项"></a>综合选项</h3><p>首先，用户在做Vivado的综合工作之前可以对Vivado工程设置中的一些和综合相关的设置做一些基本了解。</p>
+<p><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/102401331.png-960img" alt="mark"><br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/102406386.png-960img" alt="mark"></p>
+<ol>
+<li>tcl.pre 与tcl.post 选项用于指定Tcl钩子脚本（其将在综合前或后直接运行）；</li>
+<li>flatten_hierarchy: 将决定综合算法如何处理设计的层级关系；none: 不去将层级关系打平，保持在RTL描述中的设计层次关系；full: 完全将层次化的设计展开；rebuilt: 首先将层次关系展开，进行综合，然后按照原RTL再将设计的层级关系重建。</li>
+<li>gated_clock_conversion: 使能或不使能综合工具对门控时钟的自动转换；</li>
+<li>bufg: 控制工具推演使用BUFG资源的数量；</li>
+<li>fsm_extraction: 选择实现FSM的编码方式: one_hot、sequential、johnson、gray、或auto方式；</li>
+<li>keep_equivalent_registers: 防止有相同输入逻辑的寄存器合并；</li>
+<li>control_set_opt_threshold: 控制集阈值（在不超出阈值的情况下工具会做时钟使能优化）；</li>
+<li>no_lc: 当选中时，工具将不进行LUT的压缩；</li>
+<li>shreg_min_size: 推演SRL的阈值（超出后将推演出SRL）；</li>
+<li>max_bram: BRAM最大使用量（-1表示不做限制）；</li>
+<li>max_dsp：DSP的最大使用量。</li>
+</ol>
+<h3 id="开始设计综合"><a href="#开始设计综合" class="headerlink" title="开始设计综合"></a>开始设计综合</h3><p><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/102517561.png-960img" alt="mark"></p>
+<h3 id="打开综合后的设计"><a href="#打开综合后的设计" class="headerlink" title="打开综合后的设计"></a>打开综合后的设计</h3><p><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/102528319.png-960img" alt="mark"><br>在设计综合完成后的Synthesis展开项中工具会列出诸多可以在当前设计下进行的操作。注意在流程向导窗口中Synthesis下的Open Synthesized Design在综合完成并打开设计后变为Synthesized Design。Synthesized Design给出了通常我们在设计综合后最常会使用的功能和最常查看的报告选项，如下。<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/102733457.png-960img" alt="mark"></p>
+<ol>
+<li>Constraints Wizard: 约束向导</li>
+<li>Edit Timing Constraints: 时序约束编辑器</li>
+<li>Set Up Debug: 设置调试信号</li>
+<li>Report Timing Summary: 生成时序报告</li>
+<li>Report Clock Networks: 生成时钟网络报告</li>
+<li>Report Clock Interaction: 生成时钟相互关系报告</li>
+<li>Report DRC: 执行规则检查</li>
+<li>Report Noise: 执行信号SSO分析</li>
+<li>Report Utilization: 生成使用量报告</li>
+<li>Report Power: 功耗报告</li>
+<li>Schematic: 原理图</li>
+</ol>
+<h3 id="综合后的设计视图"><a href="#综合后的设计视图" class="headerlink" title="综合后的设计视图"></a>综合后的设计视图</h3><ol>
+<li>默认视图<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/102545987.png-960img" alt="mark"></li>
+<li>IO视图<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/102554529.png-960img" alt="mark"></li>
+<li>综合后的原理图<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/102603682.png-960img" alt="mark"></li>
+</ol>
+<h2 id="设计实现"><a href="#设计实现" class="headerlink" title="设计实现"></a>设计实现</h2><p>Vivado下的FPGA设计实现是指由FPGA实现工具将FPGA综合后的电路网表针对某个具体指定的器件以及相关物理与性能约束进行优化、布局、布线并生成最终可以下载到FPGA芯片配置文件的过程。</p>
+<h3 id="开始设计实现"><a href="#开始设计实现" class="headerlink" title="开始设计实现"></a>开始设计实现</h3><p><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/102832254.png-960img" alt="mark"></p>
+<h3 id="实现过程"><a href="#实现过程" class="headerlink" title="实现过程"></a>实现过程</h3><ol>
+<li>优化设计Opt Design : 针对所选器件，对逻辑设计进行优化，以便达到最优实现；</li>
+<li>功耗优化设计Power Opt Design (可选):从降低功耗的角度，对逻辑设计进行优化；</li>
+<li>布局设计Place Design(必选):将设计网表在所选器件上进行布局；</li>
+<li>布局后功耗优化Post-Place Power Opt Design (可选):在布局之后的网表基础上优化功耗；</li>
+<li>布局后物理优化Post-Place Phys Opt Design (可选):在布局之后的网表基础上进行物理优化，主要针对时序性能；</li>
+<li>布线设计Route Design(必选): 在布局后的设计上，进行布线；</li>
+<li>布线后物理优化Post-Route Phys Opt Design (可选):在布线后的设计上，参考布线后的设计延时，对逻辑、布局、布线等情况再次进行优化；</li>
+</ol>
+<h3 id="实现设置"><a href="#实现设置" class="headerlink" title="实现设置"></a>实现设置</h3><p>同样的，Vivado设计实现部分也有一些相关的设置，我们打开工程设置中的实现设置窗口。可以看到，与设计综合类似，设计实现的每个子步骤都具有Tcl钩子脚本功能，用户可以使用Tcl脚本灵活的制定设计实现流程。此外，对于设计实现的每个子步骤，用户都可以去指定工具的Directive，即让工具按照设计者预期的目标进行设计实现结果的探索。<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/103008818.png-960img" alt="mark"></p>
+<h3 id="打开实现后的设计"><a href="#打开实现后的设计" class="headerlink" title="打开实现后的设计"></a>打开实现后的设计</h3><p><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/103020905.png-960img" alt="mark"></p>
+<h3 id="实现后的设计器件视图"><a href="#实现后的设计器件视图" class="headerlink" title="实现后的设计器件视图"></a>实现后的设计器件视图</h3><p><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/103032847.png-960img" alt="mark"></p>
+<h3 id="实现后的设计结果-实际的布局布线"><a href="#实现后的设计结果-实际的布局布线" class="headerlink" title="实现后的设计结果-实际的布局布线"></a>实现后的设计结果-实际的布局布线</h3><p><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/103046607.png-960img" alt="mark"></p>
+<h3 id="实现后的设计报告"><a href="#实现后的设计报告" class="headerlink" title="实现后的设计报告"></a>实现后的设计报告</h3><p>Vivado实现过程包括逻辑与物理的转化、将网表布局布线到设备资源中。实现完成后我们可以查看布局布线的实际情况，核实是否符合设计要求。另外，Vivado工具在设计实现后可以提供诸多设计报告以供设计者查看。<br><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/103115654.png-960img" alt="mark"></p>
+<p>其中包含以下一些经常使用的报告：</p>
+<ol>
+<li>Post Optimization DRC Report: 列出I/O DRC检查结果；</li>
+<li>Post Power Optimization DRC Report: 列出power DRC检查结果；</li>
+<li>Place and Route Log: 实现过程的记录文件；</li>
+<li>IO Report: 列出设计最终的IO情况；</li>
+<li>Clock Utilization Report: 详细列出时钟资源的使用情况；</li>
+<li>Utilization Report: 详细列出FPGA资源使用情况；</li>
+<li>Control Sets Report: 列出设计中控制信号的详细情况。</li>
+</ol>
+<h2 id="生成配置文件"><a href="#生成配置文件" class="headerlink" title="生成配置文件"></a>生成配置文件</h2><p><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/103159575.png-960img" alt="mark"></p>
+<h3 id="硬件配置-打开硬件管理器"><a href="#硬件配置-打开硬件管理器" class="headerlink" title="硬件配置-打开硬件管理器"></a>硬件配置-打开硬件管理器</h3><p><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/103213530.png-960img" alt="mark"></p>
+<h3 id="连接ZYPI硬件平台"><a href="#连接ZYPI硬件平台" class="headerlink" title="连接ZYPI硬件平台"></a>连接ZYPI硬件平台</h3><p><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/103224696.png-960img" alt="mark"></p>
+<h3 id="选择器件进行配置"><a href="#选择器件进行配置" class="headerlink" title="选择器件进行配置"></a>选择器件进行配置</h3><p><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/103243345.png-960img" alt="mark"></p>
+<h3 id="选择配置文件进行配置"><a href="#选择配置文件进行配置" class="headerlink" title="选择配置文件进行配置"></a>选择配置文件进行配置</h3><p><img src="http://okr8rgx0y.bkt.clouddn.com/myblog/20170226/103256634.png-960img" alt="mark"></p>
+<h2 id="done"><a href="#done" class="headerlink" title="done!"></a>done!</h2><p>观察硬件响应。</p>
+<h1 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h1><p>相关时序仿真、时序约束、时序分析、高级综合/实现选项设置、设计分析、增量实现、等内容，咱们后面接着聊。</p>
+<hr>
+<h2 id=""><a href="#" class="headerlink" title=""></a>
+<div id="MySignature" style="display: block;">
+
+<p id="PSignature" style="border-top: #e0e0e0 1px dashed; border-right: #e0e0e0 1px dashed; border-bottom: #e0e0e0 1px dashed; border-left: #e0e0e0 1px dashed;            padding-top: 10px;padding-right: 10px;padding-bottom: 10px;padding-left: 110px;            background: url(https://i.creativecommons.org/l/by/4.0/88x31.png-960img) #e5f1f4 no-repeat 1% 50%;            font-family: 微软雅黑; font-size:11px;">  
+<br><strong>作者：FPGAPlayer</strong>
+<br><strong>出处：</strong><a rel="" href="http://fpgaplayer.com">http://FPGAPlayer.com </a>   
+<br><strong>本文采用：</strong><a rel="external" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">知识共享署名 4.0 国际许可协议</a><strong>进行许可</strong>
+<br><strong>欢迎转载，但未经原作者同意必须保留此段声明，且在文章页面明显位置给出原文连接。</strong>
+</p>
+</div>
+</h2>
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns:m="http://schemas.microsoft.com/office/2004/12/omml" xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="ProgId" content="Word.Document">
+<meta name="Generator" content="Microsoft Word 15">
+<meta name="Originator" content="Microsoft Word 15">
+<link rel="File-List" href="/misc/filelist.xml">
+<link rel="themeData" href="/misc/themedata.thmx">
+<link rel="colorSchemeMapping" href="/misc/colorschememapping.xml">
+</head>
+<body lang="ZH-CN" style="tab-interval:21.0pt;text-justify-trim:punctuation">
+<div class="WordSection1" style="layout-grid:15.6pt">
+<p class="MsoNormal" align="center" style="text-align:center"><span lang="EN-US" style="color:red">FPGAPlayer.com</span><span style="color:red">是一个非牟利的网站，网站的运营<span lang="EN-US">/</span>管理<span lang="EN-US">/</span>维护费用其实<span class="GramE"><b style="mso-bidi-font-weight:normal"><u>很低很低</u></b></span>的！<span lang="EN-US"><o:p></o:p></span></span></p>
+<p class="MsoNormal" align="center" style="text-align:center"><span style="color:red">但是博<span class="GramE">主坚持</span>原创分享的</span><b style="mso-bidi-font-weight:normal"><u><span style="font-size:12.0pt;
+mso-bidi-font-size:11.0pt;color:red"> 心 </span></u></b><span style="color:red">需要广大“玩家”的支持和鼓励！<span lang="EN-US"><o:p></o:p></span></span></p>
+<p class="MsoNormal" align="center" style="text-align:center"><span style="color:red">码字不易，点击</span><b style="mso-bidi-font-weight:normal"><u><span style="font-size:12.0pt;mso-bidi-font-size:11.0pt;color:red">“赏”</span></u></b><span style="color:red">，<span class="GramE">请博主喝</span>杯咖啡吧！<span lang="EN-US"><o:p></o:p></span></span></p>
+</div>
+</body>
+</html>
+
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div></div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="https://raw.githubusercontent.com/hwpro2017/hwpro2017.github.io/master/path/to/wechat-reward-image.png" alt="FPGA玩家 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="https://raw.githubusercontent.com/hwpro2017/hwpro2017.github.io/master/path/to/alipay-reward-image.png" alt="FPGA玩家 Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Vivado-Flow/" rel="tag"># Vivado Flow</a>
+          
+            <a href="/tags/ZYNQ-Flow/" rel="tag"># ZYNQ Flow</a>
+          
+            <a href="/tags/ZYPI/" rel="tag"># ZYPI</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/26/zynqflow-1/" rel="next" title="ZYNQ上手教程1-软硬件协同设计流程">
+                <i class="fa fa-chevron-left"></i> ZYNQ上手教程1-软硬件协同设计流程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style_32x32">
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_email"></a>
+<a class="jiathis_button_evernote"></a>
+<a class="jiathis_button_ydnote"></a>
+<a class="jiathis_button_cqq"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	summary:"",
+	shortUrl:false,
+	hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/02/26/vivadoflow-2/"
+           data-title="Vivado上手教程2-基本硬件设计流程" data-url="http://fpgaplayer.com/2017/02/26/vivadoflow-2/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="FPGA玩家" />
+          <p class="site-author-name" itemprop="name">FPGA玩家</p>
+          <p class="site-description motion-element" itemprop="description">软件靠硬件改变世界！</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="mailto:hwpro2017@163.com" target="_blank" title="Email">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Email
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/6122859050" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://fpgaplayer.com/" title="FPGAPlayer网站" target="_blank">FPGAPlayer网站</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="mailto:hwpro2017@163.com" title="交换友情链接请联系" target="_blank">交换友情链接请联系</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="mailto:hwpro2017@163.com" title="咨询与合作" target="_blank">咨询与合作</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#实验介绍"><span class="nav-number">1.</span> <span class="nav-text">实验介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实验步骤"><span class="nav-number">2.</span> <span class="nav-text">实验步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#新建工程"><span class="nav-number">2.1.</span> <span class="nav-text">新建工程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加源文件"><span class="nav-number">2.2.</span> <span class="nav-text">添加源文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加约束文件"><span class="nav-number">2.3.</span> <span class="nav-text">添加约束文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RTL分析"><span class="nav-number">2.4.</span> <span class="nav-text">RTL分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计仿真"><span class="nav-number">2.5.</span> <span class="nav-text">设计仿真</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Vivado工具集成的仿真工具功能十分强大，提供诸多功能"><span class="nav-number">2.5.1.</span> <span class="nav-text">Vivado工具集成的仿真工具功能十分强大，提供诸多功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#再次添加源文件，这次选择添加仿真激励文件TestBench"><span class="nav-number">2.5.2.</span> <span class="nav-text">再次添加源文件，这次选择添加仿真激励文件TestBench</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进行设计仿真"><span class="nav-number">2.5.3.</span> <span class="nav-text">进行设计仿真</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#仿真设置"><span class="nav-number">2.5.4.</span> <span class="nav-text">仿真设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#行为仿真"><span class="nav-number">2.5.5.</span> <span class="nav-text">行为仿真</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#仿真界面"><span class="nav-number">2.5.6.</span> <span class="nav-text">仿真界面</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计编译：设计综合与设计实现"><span class="nav-number">2.6.</span> <span class="nav-text">设计编译：设计综合与设计实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#设计综合"><span class="nav-number">2.6.1.</span> <span class="nav-text">设计综合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#综合选项"><span class="nav-number">2.6.2.</span> <span class="nav-text">综合选项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开始设计综合"><span class="nav-number">2.6.3.</span> <span class="nav-text">开始设计综合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打开综合后的设计"><span class="nav-number">2.6.4.</span> <span class="nav-text">打开综合后的设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#综合后的设计视图"><span class="nav-number">2.6.5.</span> <span class="nav-text">综合后的设计视图</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计实现"><span class="nav-number">2.7.</span> <span class="nav-text">设计实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#开始设计实现"><span class="nav-number">2.7.1.</span> <span class="nav-text">开始设计实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现过程"><span class="nav-number">2.7.2.</span> <span class="nav-text">实现过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现设置"><span class="nav-number">2.7.3.</span> <span class="nav-text">实现设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打开实现后的设计"><span class="nav-number">2.7.4.</span> <span class="nav-text">打开实现后的设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现后的设计器件视图"><span class="nav-number">2.7.5.</span> <span class="nav-text">实现后的设计器件视图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现后的设计结果-实际的布局布线"><span class="nav-number">2.7.6.</span> <span class="nav-text">实现后的设计结果-实际的布局布线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现后的设计报告"><span class="nav-number">2.7.7.</span> <span class="nav-text">实现后的设计报告</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生成配置文件"><span class="nav-number">2.8.</span> <span class="nav-text">生成配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#硬件配置-打开硬件管理器"><span class="nav-number">2.8.1.</span> <span class="nav-text">硬件配置-打开硬件管理器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#连接ZYPI硬件平台"><span class="nav-number">2.8.2.</span> <span class="nav-text">连接ZYPI硬件平台</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择器件进行配置"><span class="nav-number">2.8.3.</span> <span class="nav-text">选择器件进行配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择配置文件进行配置"><span class="nav-number">2.8.4.</span> <span class="nav-text">选择配置文件进行配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#done"><span class="nav-number">2.9.</span> <span class="nav-text">done!</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#后续"><span class="nav-number">3.</span> <span class="nav-text">后续</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">3.1.</span> <span class="nav-text">
+
+
+  
+作者：FPGAPlayer
+出处：http://FPGAPlayer.com    
+本文采用：知识共享署名 4.0 国际许可协议进行许可
+欢迎转载，但未经原作者同意必须保留此段声明，且在文章页面明显位置给出原文连接。
+
+
+</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">FPGA玩家</span>
+</div>
+
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i>访客<span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i>共<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"fpgaplayer"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+</body>
+</html>

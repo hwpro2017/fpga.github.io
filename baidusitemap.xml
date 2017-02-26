@@ -4,6 +4,60 @@
 
     
   <url>
+    <loc>http://fpgaplayer.com/2017/02/26/zynqflow-1/</loc>
+    <lastmod>2017-02-26T02:51:32.053Z</lastmod>
+    <data>
+        <display>
+        <title>ZYNQ上手教程1-软硬件协同设计流程</title>
+        <pubTime>2017-02-26T09:48:48.000Z</pubTime>
+        
+        <tag>Vivado Flow</tag>
+         
+        <tag>ZYNQ Flow</tag>
+         
+        <tag>ZYPI</tag>
+         
+         
+           
+             
+              <breadCrumb title="教程" url="http://fpgaplayer.com/categories/%E6%95%99%E7%A8%8B/"/>
+          
+             
+              <breadCrumb title="ZYNQ" url="http://fpgaplayer.com/categories/%E6%95%99%E7%A8%8B/ZYNQ/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://fpgaplayer.com/2017/02/26/vivadoflow-2/</loc>
+    <lastmod>2017-02-26T02:41:42.942Z</lastmod>
+    <data>
+        <display>
+        <title>Vivado上手教程2-基本硬件设计流程</title>
+        <pubTime>2017-02-26T09:48:48.000Z</pubTime>
+        
+        <tag>Vivado Flow</tag>
+         
+        <tag>ZYNQ Flow</tag>
+         
+        <tag>ZYPI</tag>
+         
+         
+           
+             
+              <breadCrumb title="教程" url="http://fpgaplayer.com/categories/%E6%95%99%E7%A8%8B/"/>
+          
+             
+              <breadCrumb title="ZYNQ" url="http://fpgaplayer.com/categories/%E6%95%99%E7%A8%8B/ZYNQ/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://fpgaplayer.com/2017/02/11/esater-egg/</loc>
     <lastmod>2017-02-20T14:45:52.061Z</lastmod>
     <data>
